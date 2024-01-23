@@ -2,9 +2,13 @@ local map = vim.keymap.set
 local unmap = vim.keymap.del
 
 local opts = {
-	silent = true,
-	noremap = true
+    silent = true,
+    noremap = true
 }
+
+-- Better split window creation
+map('n', '<C-v>', '<C-w>v', opts)
+map('n', '<C-s>', '<C-w>s', opts)
 
 -- Better split-window navigation
 map('n', '<C-h>', '<C-w>h', opts)

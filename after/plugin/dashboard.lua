@@ -3,6 +3,7 @@ local db = require("dashboard")
 local conf = {}
 
 conf.header = headers.commicgirl1
+conf.disable_move = true
 conf.center = {
 	{
 		icon = "  ",

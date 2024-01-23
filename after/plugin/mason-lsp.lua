@@ -11,11 +11,32 @@ require('mason-lspconfig').setup({
     ensure_installed = { 'lua_ls', 'emmet_language_server', 'html', 'cssls', 'tsserver' },
     handlers = {
         lsp_zero.default_setup,
+        lua_ls = function()
+            require('lspconfig').lua_ls.setup({
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = "LuaJIT",
+                        },
+                        diagnostics = {
+                            -- Get the language server to recognize the `vim` global
+                            globals = { "vim" },
+                        },
+                        workspace = {
+                            -- Make the server aware of Neovim runtime files
+                            library = {
+                                vim.api.nvim_get_runtime_file("", true),
+                                vim.env.VIMRUNTIME .. '/lua',
+                            }
+                        },
+                        telemetry = {
+                            enable = false,
+                        },
+                    },
+                }
+            })
+        end
     },
-    lua_ls = function()
-        local lua_opts = lsp_zero.nvim_lua_ls()
-        require('lspconfig').lua_ls.setup(lua_opts)
-    end
 })
 
 local cmp = require('cmp')
