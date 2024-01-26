@@ -1,65 +1,94 @@
-local lsp_zero = require('lsp-zero')
+local lsp_zero = require("lsp-zero")
+local mason = require("mason")
+local mason_lspconfig = require("mason-lspconfig")
+local mti = require("mason-tool-installer")
 
 lsp_zero.on_attach(function(client, bufnr)
-    -- see :help lsp-zero-keybindings
-    -- to learn the available actions
-    lsp_zero.default_keymaps({ buffer = bufnr })
+	-- see :help lsp-zero-keybindings
+	-- to learn the available actions
+	lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
-require('mason').setup({})
-require('mason-lspconfig').setup({
-    ensure_installed = { 'lua_ls', 'emmet_language_server', 'html', 'cssls', 'tsserver' },
-    handlers = {
-        lsp_zero.default_setup,
-        lua_ls = function()
-            require('lspconfig').lua_ls.setup({
-                settings = {
-                    Lua = {
-                        runtime = {
-                            version = "LuaJIT",
-                        },
-                        diagnostics = {
-                            -- Get the language server to recognize the `vim` global
-                            globals = { "vim" },
-                        },
-                        workspace = {
-                            -- Make the server aware of Neovim runtime files
-                            library = {
-                                vim.api.nvim_get_runtime_file("", true),
-                                vim.env.VIMRUNTIME .. '/lua',
-                            }
-                        },
-                        telemetry = {
-                            enable = false,
-                        },
-                    },
-                }
-            })
-        end
-    },
+mti.setup({
+	ensure_installed = {
+		"stylua",
+		"luacheck",
+		"prettier",
+		"eslint_d",
+	},
+	run_on_start = true,
+})
+mason.setup({
+	ui = {
+		icons = {
+			package_installed = "󰸞",
+			package_pending = "",
+			package_uninstalled = "",
+		},
+	},
+})
+mason_lspconfig.setup({
+	ensure_installed = {
+		"emmet_language_server",
+		"html",
+		"cssls",
+		"tsserver",
+		"tailwindcss",
+		"jsonls",
+		"lua_ls",
+		"yamlls",
+	},
+	handlers = {
+		lsp_zero.default_setup,
+		lua_ls = function()
+			require("lspconfig").lua_ls.setup({
+				settings = {
+					Lua = {
+						runtime = {
+							version = "LuaJIT",
+						},
+						diagnostics = {
+							-- Get the language server to recognize the `vim` global
+							globals = { "vim" },
+						},
+						workspace = {
+							-- Make the server aware of Neovim runtime files
+							library = {
+								vim.api.nvim_get_runtime_file("", true),
+								vim.env.VIMRUNTIME .. "/lua",
+							},
+						},
+						telemetry = {
+							enable = false,
+						},
+					},
+				},
+			})
+		end,
+	},
 })
 
-local cmp = require('cmp')
-local cmp_action = require('lsp-zero').cmp_action()
+local cmp = require("cmp")
+local cmp_action = require("lsp-zero").cmp_action()
 
 cmp.setup({
-    mapping = cmp.mapping.preset.insert({
-        -- `Enter` key to confirm completion
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+	mapping = cmp.mapping.preset.insert({
+		-- `Enter` key to confirm completion
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
 
-        -- Ctrl+Space to trigger completion menu
-        ['<C-Space>'] = cmp.mapping.complete(),
+		-- Ctrl+Space to trigger completion menu
+		["<C-Space>"] = cmp.mapping.complete(),
 
-        -- Navigate between snippet placeholder
-        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-        ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+		-- Navigate between snippet placeholder
+		["<C-f>"] = cmp_action.luasnip_jump_forward(),
+		["<C-b>"] = cmp_action.luasnip_jump_backward(),
 
-        -- Scroll up and down in the completion documentation
-        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-d>'] = cmp.mapping.scroll_docs(4),
-    }),
-    window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-    }
+		-- Scroll up and down in the completion documentation
+		["<C-u>"] = cmp.mapping.scroll_docs(-4),
+		["<C-d>"] = cmp.mapping.scroll_docs(4),
+	}),
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
 })

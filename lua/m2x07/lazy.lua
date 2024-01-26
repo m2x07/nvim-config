@@ -17,7 +17,8 @@ require("lazy").setup({
 	{ "navarasu/onedark.nvim" },
 	{ "projekt0n/github-nvim-theme", lazy = false },
 	{ "shaunsingh/moonlight.nvim" },
-    { 'rose-pine/neovim', name = 'rose-pine' },
+	{ "rose-pine/neovim", name = "rose-pine" },
+	{ "nyoom-engineering/oxocarbon.nvim" },
 
 	-- Indent guides
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
@@ -73,12 +74,12 @@ require("lazy").setup({
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
-    -- Awesome start screen
-    {
-        'nvimdev/dashboard-nvim',
-        event = 'VimEnter',
-        dependencies = { {'nvim-tree/nvim-web-devicons'}}
-    },
+	-- Awesome start screen
+	{
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	},
 
 	-- markdown preview
 	{
@@ -99,6 +100,9 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons",
 		},
 	},
+
+	-- Autoinstall mason packages
+	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 
 	-- lsp
 	{

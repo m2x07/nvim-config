@@ -1,16 +1,27 @@
-require('conform').setup({
-    formatters_by_ft = {
-        lua = { 'stylua' },
-        html = { { 'prettier', 'prettier_d' } },
-        css = { { 'prettier', 'prettier_d' } },
-        javascript = { { 'prettier', 'prettier_d' } },
-        typescript = { { 'prettier', 'prettier_d' } },
-        markdown = { { 'prettier', 'prettier_d' } },
-    }
+local conform = require("conform")
+
+conform.setup({
+	formatters_by_ft = {
+		javascript = { "prettier" },
+		typescript = { "prettier" },
+		javascriptreact = { "prettier" },
+		typescriptreact = { "prettier" },
+		html = { "prettier" },
+		css = { "prettier" },
+		markdown = { "prettier" },
+		yaml = { "prettier" },
+		json = { "prettier" },
+		lua = { "stylua" },
+	},
+	format_on_save = {
+		lsp_fallback = true,
+		async = false,
+	},
 })
 
-vim.keymap.set({ 'n', 'v' }, '<leader>df', function()
-    require('conform').format({
-        lsp_fallback = true,
-    })
-end, { desc = "Format code" })
+vim.keymap.set({ "n", "v" }, "<leader>df", function()
+	conform.format({
+		lsp_fallback = true,
+		async = false,
+	})
+end, { desc = "Trigger formatting for document/selection (in visual mode)" })
