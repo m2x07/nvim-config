@@ -15,10 +15,10 @@ require("lazy").setup({
 	-- Some colorschemes
 	{ "folke/tokyonight.nvim", lazy = false, priority = 1000 },
 	{ "navarasu/onedark.nvim" },
-	{ "projekt0n/github-nvim-theme", lazy = false },
-	{ "shaunsingh/moonlight.nvim" },
 	{ "rose-pine/neovim", name = "rose-pine" },
-	{ "nyoom-engineering/oxocarbon.nvim" },
+	{ "mhartington/oceanic-next" },
+	{ "lourenci/github-colors" },
+	{ "kvrohit/substrata.nvim" },
 
 	-- Indent guides
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
