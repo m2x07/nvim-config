@@ -19,6 +19,7 @@ require("lazy").setup({
 	{ "mhartington/oceanic-next" },
 	{ "lourenci/github-colors" },
 	{ "kvrohit/substrata.nvim" },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
 	-- Indent guides
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },

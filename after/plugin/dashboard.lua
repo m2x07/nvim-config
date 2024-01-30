@@ -2,7 +2,7 @@ local headers = require("m2x07.dashboard-headers")
 local db = require("dashboard")
 local conf = {}
 
-conf.header = headers.m2x07
+conf.header = headers.commicgirl3
 conf.disable_move = true
 conf.center = {
 	{
