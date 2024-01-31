@@ -1,4 +1,4 @@
-local headers = require("m2x07.dashboard-headers")
+local headers = require("m2x07.headers")
 local db = require("dashboard")
 local conf = {}
 

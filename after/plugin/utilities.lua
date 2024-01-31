@@ -44,7 +44,9 @@ require("colorizer").setup({
 })
 
 -- Plugin for easier commenting
-require("Comment").setup()
+require("Comment").setup({
+    sticky = true;
+})
 
 -- Highlight indents in lines
 require("ibl").setup({

@@ -21,5 +21,4 @@ require("rose-pine").setup({
 
 vim.g.substrata_italic_comments = true
 
-local theme = vim.cmd.colorscheme
-theme("github-colors")
+vim.cmd.colorscheme("tokyonight-moon")

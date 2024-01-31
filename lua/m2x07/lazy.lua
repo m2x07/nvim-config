@@ -18,7 +18,6 @@ require("lazy").setup({
 	{ "rose-pine/neovim", name = "rose-pine" },
 	{ "mhartington/oceanic-next" },
 	{ "lourenci/github-colors" },
-	{ "kvrohit/substrata.nvim" },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
 	-- Indent guides
@@ -127,6 +126,17 @@ require("lazy").setup({
 			{ "L3MON4D3/LuaSnip" },
 			{ "rafamadriz/friendly-snippets" },
 			opts = {},
+		},
+	},
+}, {
+	install = {
+		missing = true,
+		colorscheme = { "tokyonight" },
+	},
+	ui = {
+		icons = {
+			loaded = "󰸞",
+			not_loaded = "",
 		},
 	},
 })

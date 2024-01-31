@@ -38,3 +38,8 @@ map({ "n", "i" }, "<leader><F4>", vim.cmd.NvimTreeToggle, opts)
 
 -- Document related keybinds
 map("n", "<leader>ds", ":w<cr>")
+
+-- Better system clipboard support
+map("v", "<leader>y", '"+y', opts)
+map("v", "<leader>p", '"+p', opts)
+map("v", "<leader>P", '"+P', opts)
