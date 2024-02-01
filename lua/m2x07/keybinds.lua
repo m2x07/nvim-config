@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local o = vim.tbl_deep_extend
 
 local opts = {
 	silent = true,
@@ -6,40 +7,40 @@ local opts = {
 }
 
 -- Better split window creation
-map("n", "<leader>sv", "<C-w>v", opts)
-map("n", "<leader>sh", "<C-w>s", opts)
+map("n", "<leader>sv", "<C-w>v", o("force", opts, { desc = "Split window vertically" }))
+map("n", "<leader>sh", "<C-w>s", o("force", opts, { desc = "Split window horizontally" }))
 
 -- Better split-window navigation
-map("n", "<C-h>", "<C-w>h", opts)
-map("n", "<C-j>", "<C-w>j", opts)
-map("n", "<C-k>", "<C-w>k", opts)
-map("n", "<C-l>", "<C-w>l", opts)
+map("n", "<C-h>", "<C-w>h", o("force", opts, { desc = "Shift focus towards Left" }))
+map("n", "<C-j>", "<C-w>j", o("force", opts, { desc = "Shift focus towards Bottom" }))
+map("n", "<C-k>", "<C-w>k", o("force", opts, { desc = "Shift focus towards Top" }))
+map("n", "<C-l>", "<C-w>l", o("force", opts, { desc = "Shift focus towards Right" }))
 
 -- Better split-window resizing
-map("n", "<C-Up>", ":resize +2<cr>", opts)
-map("n", "<C-Down>", ":resize -2<cr>", opts)
-map("n", "<C-Left>", ":vertical resize +2<cr>", opts)
-map("n", "<C-Right>", ":vertical resize -2<cr>", opts)
+map("n", "<C-Up>", ":resize +2<cr>", o("force", opts, { desc = "Increase vertical split height" }))
+map("n", "<C-Down>", ":resize -2<cr>", o("force", opts, { desc = "Decrease vertical split height" }))
+map("n", "<C-Left>", ":vertical resize +2<cr>", o("force", opts, { desc = "Increase horizontal split width" }))
+map("n", "<C-Right>", ":vertical resize -2<cr>", o("force", opts, { desc = "Decrease horizontal split width" }))
 
 -- Center search results
-map("n", "n", "nzz", opts)
-map("n", "N", "Nzz", opts)
+map("n", "n", "nzz", o("force", opts, { desc = "Go to next match" }))
+map("n", "N", "Nzz", o("force", opts, { desc = "Go to previous match" }))
 
 -- Preserve select on indent
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 
 -- Move selected lines up/down
-map("x", "<A-K>", ":move '<-2<cr>gv-gv", opts)
-map("x", "<A-J>", ":move '>+1<cr>gv-gv", opts)
+map("x", "<A-K>", ":move '<-2<cr>gv-gv", o("force", opts, { desc = "Move selection UP by one line" }))
+map("x", "<A-J>", ":move '>+1<cr>gv-gv", o("force", opts, { desc = "Move selection DOWN by one line" }))
 
 -- NvimTree related maps
-map({ "n", "i" }, "<leader><F4>", vim.cmd.NvimTreeToggle, opts)
+map({ "n", "i" }, "<leader><F4>", vim.cmd.NvimTreeToggle, o("force", opts, { desc = "Toggle Filetree" }))
 
 -- Document related keybinds
-map("n", "<leader>ds", ":w<cr>")
+map("n", "<leader>ds", ":w<cr>", o("force", opts, { desc = "Save Document" }))
 
 -- Better system clipboard support
-map("v", "<leader>y", '"+y', opts)
-map("v", "<leader>p", '"+p', opts)
-map("v", "<leader>P", '"+P', opts)
+map("v", "<leader>y", '"+y', o("force", opts, { desc = "Copy to system clipboard" }))
+map("v", "<leader>p", '"+p', o("force", opts, { desc = "Paste from system clipboard after cursor" }))
+map("v", "<leader>P", '"+P', o("force", opts, { desc = "Paste from system clipboard before cursor" }))
