@@ -2,7 +2,7 @@ local headers = require("m2x07.headers")
 local db = require("dashboard")
 local conf = {}
 
-conf.header = headers.commicgirl3
+conf.header = headers.nvim
 conf.disable_move = true
 conf.center = {
 	{

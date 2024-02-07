@@ -19,7 +19,7 @@ require("lazy").setup({
 	{ "mhartington/oceanic-next" },
 	{ "lourenci/github-colors" },
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-
+	{ "Tsuzat/NeoSolarized.nvim" },
 	-- Indent guides
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 
@@ -137,6 +137,18 @@ require("lazy").setup({
 		icons = {
 			loaded = "󰸞",
 			not_loaded = "",
+		},
+	},
+	performance = {
+		rtp = {
+			disable_plugins = {
+				"netrwPlugin",
+				"gzip",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
 		},
 	},
 })

@@ -18,7 +18,14 @@ require("rose-pine").setup({
 		transparency = false,
 	},
 })
+require("NeoSolarized").setup({
+	transparent = false,
+	terminal_colors = true,
+	styles = {
+		comments = { italic = true },
+		string = { italic = false },
+	},
+	lualine_bold = true,
+})
 
-vim.g.substrata_italic_comments = true
-
-vim.cmd.colorscheme("tokyonight-moon")
+vim.cmd.colorscheme("tokyonight")
