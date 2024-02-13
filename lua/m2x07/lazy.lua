@@ -15,11 +15,13 @@ require("lazy").setup({
 	-- Some colorschemes
 	{ "folke/tokyonight.nvim", lazy = false, priority = 1000 },
 	{ "navarasu/onedark.nvim" },
-	{ "rose-pine/neovim", name = "rose-pine" },
-	{ "mhartington/oceanic-next" },
-	{ "lourenci/github-colors" },
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	{ "Tsuzat/NeoSolarized.nvim" },
+	{ "judaew/ronny.nvim" },
+	{
+		"scottmckendry/cyberdream.nvim",
+		lazy = false,
+		priority = 1000,
+	},
+
 	-- Indent guides
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 

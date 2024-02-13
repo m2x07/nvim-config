@@ -1,31 +1,22 @@
 -- Configure themes here, set at the end of the file
 
 require("onedark").setup({
-	style = "darker",
+	style = "darker", -- "darker" or "deep"
 })
 require("tokyonight").setup({
-	style = "moon",
+	style = "deep",
 	styles = {
 		keywords = { italic = false },
 	},
 })
-require("rose-pine").setup({
-	variant = "main",
-	dark_variant = "main",
-	styles = {
-		bold = true,
-		italic = false,
-		transparency = false,
-	},
-})
-require("NeoSolarized").setup({
-	transparent = false,
-	terminal_colors = true,
-	styles = {
-		comments = { italic = true },
-		string = { italic = false },
-	},
-	lualine_bold = true,
+require("ronny").setup()
+
+require("cyberdream").setup({
+	-- Recommended - see "Configuring" below for more config options
+	transparent = true,
+	italic_comments = true,
+	hide_fillchars = true,
+	borderless_telescope = false,
 })
 
-vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("onedark")
