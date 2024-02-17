@@ -39,6 +39,7 @@ map({ "n", "i" }, "<leader><F4>", vim.cmd.NvimTreeToggle, o("force", opts, { des
 
 -- Document related keybinds
 map("n", "<leader>ds", ":w<cr>", o("force", opts, { desc = "Save Document" }))
+map("n", "<leader>dq", ":q<cr>", o("force", opts, { desc = "Quit Document" }))
 
 -- Better system clipboard support
 map("v", "<leader>y", '"+y', o("force", opts, { desc = "Copy to system clipboard" }))

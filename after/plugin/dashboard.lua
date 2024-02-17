@@ -2,7 +2,7 @@ local headers = require("m2x07.headers")
 local db = require("dashboard")
 local conf = {}
 
-conf.header = headers.nvim
+conf.header = headers.merlin
 conf.disable_move = true
 conf.center = {
 	{

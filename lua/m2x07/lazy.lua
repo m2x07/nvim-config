@@ -12,71 +12,66 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- Some colorschemes
+	-- some colorschemes
 	{ "folke/tokyonight.nvim", lazy = false, priority = 1000 },
 	{ "navarasu/onedark.nvim" },
 	{ "judaew/ronny.nvim" },
-	{
-		"scottmckendry/cyberdream.nvim",
-		lazy = false,
-		priority = 1000,
-	},
 
-	-- Indent guides
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-
-	-- Better Commenting
-	{
-		"numToStr/Comment.nvim",
-		lazy = false,
-	},
-
-	-- Auto pairs
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-	},
-
-	-- Color highlighting
-	{ "norcalli/nvim-colorizer.lua" },
-
-	-- Terminal integration
-	{ "akinsho/toggleterm.nvim", version = "*", config = true },
-
-	-- Git integration
-	"tpope/vim-fugitive",
-
-	-- Quick switching between buffers
-	"ThePrimeagen/harpoon",
-
-	-- Linter
-	{ "mfussenegger/nvim-lint" },
-
-	-- Code Formatter
-	{
-		"stevearc/conform.nvim",
-		opts = {},
-	},
-
-	-- Fuzzy Finder
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-
-	-- parser for code highlighting and stuff. VERI IMPORTANT
+	-- parser for code highlighting and stuff. VERY IMPORTANT
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 	},
 
-	-- Nice and Beautiful status line
+	-- fuzzy finder
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+
+	-- quick switching between buffers
+	"ThePrimeagen/harpoon",
+
+	-- terminal integration
+	{ "akinsho/toggleterm.nvim", version = "*", config = true },
+
+	-- better Commenting
+	{
+		"numToStr/Comment.nvim",
+		lazy = false,
+	},
+
+	-- auto pairs
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+	},
+
+	-- indent guides
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+
+	-- color highlighting
+	{ "norcalli/nvim-colorizer.lua" },
+
+	-- git integration
+	"tpope/vim-fugitive",
+
+	-- linter
+	{ "mfussenegger/nvim-lint" },
+
+	-- code formatter
+	{
+		"stevearc/conform.nvim",
+		opts = {},
+	},
+
+	-- nice and beautiful status line
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 
-	-- Awesome start screen
+	-- awesome start screen
 	{
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
@@ -103,7 +98,7 @@ require("lazy").setup({
 		},
 	},
 
-	-- Autoinstall mason packages
+	-- autoinstall mason packages
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 
 	-- lsp
@@ -133,7 +128,7 @@ require("lazy").setup({
 }, {
 	install = {
 		missing = true,
-		colorscheme = { "tokyonight" },
+		colorscheme = { "onedark" },
 	},
 	ui = {
 		icons = {

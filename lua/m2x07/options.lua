@@ -5,6 +5,7 @@ opt.number = true
 opt.relativenumber = true
 opt.scrolloff = 8
 opt.colorcolumn = "100"
+opt.signcolumn = "yes"
 opt.cursorline = true
 vim.g.editorconfig = true
 

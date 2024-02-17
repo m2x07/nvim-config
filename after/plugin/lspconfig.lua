@@ -7,15 +7,6 @@ lsp_zero.on_attach(function(client, bufnr)
 	lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
-mti.setup({
-	ensure_installed = {
-		"stylua",
-		"luacheck",
-		"prettier",
-		"eslint_d",
-	},
-	run_on_start = true,
-})
 mason.setup({
 	ui = {
 		icons = {
@@ -40,14 +31,40 @@ mason_lspconfig.setup({
 		lsp_zero.default_setup,
 	},
 })
+mti.setup({
+	ensure_installed = {
+		"stylua",
+		"luacheck",
+		"prettier",
+		"eslint_d",
+	},
+	run_on_start = true,
+})
 
+-- AUTO COMPLETIONS
 local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
 
+-- use friendly-snippets source
+require("luasnip.loaders.from_vscode").lazy_load()
+
 cmp.setup({
+	preselect = "item",
+	completion = {
+		completeopt = "menu,menuone,noinsert",
+	},
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
 	mapping = cmp.mapping.preset.insert({
 		-- `Enter` key to confirm completion
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<CR>"] = cmp.mapping.confirm({ select = false }),
 
 		-- Ctrl+Space to trigger completion menu
 		["<C-Space>"] = cmp.mapping.complete(),
@@ -60,8 +77,11 @@ cmp.setup({
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
 	}),
-	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
-	},
+	sources = cmp.config.sources({
+		{ name = "buffer" },
+		{ name = "path" },
+		{ name = "luasnip" },
+		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
+	}),
 })
