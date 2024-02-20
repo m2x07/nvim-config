@@ -14,7 +14,7 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
-vim.cmd("set clipboard+=unnamedplus")
+-- vim.cmd("set clipboard+=unnamedplus")
 
 -- Split Magement
 opt.splitbelow = true

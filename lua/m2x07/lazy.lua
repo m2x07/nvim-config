@@ -128,7 +128,7 @@ require("lazy").setup({
 }, {
 	install = {
 		missing = true,
-		colorscheme = { "onedark" },
+		colorscheme = { "tokyonight" },
 	},
 	ui = {
 		icons = {
@@ -137,6 +137,9 @@ require("lazy").setup({
 		},
 	},
 	performance = {
+		cache = {
+			enabled = true,
+		},
 		rtp = {
 			disable_plugins = {
 				"netrwPlugin",
