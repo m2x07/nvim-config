@@ -1,0 +1,26 @@
+return {
+	"ThePrimeagen/harpoon",
+	config = function(_, _)
+		local map = vim.keymap.set
+		local mark = require("harpoon.mark")
+		local ui = require("harpoon.ui")
+
+		map("n", "<leader>ha", mark.add_file, { desc = "Add file to harpoon" })
+		map("n", "<leader>he", ui.toggle_quick_menu, { desc = "Toggle Harpoon Menu" })
+		map("n", "<leader>1", function()
+			ui.nav_file(1)
+		end, { desc = "Jump to 1st Harpoon mark" })
+		map("n", "<leader>2", function()
+			ui.nav_file(2)
+		end, { desc = "Jump to 2nd Harpoon mark" })
+		map("n", "<leader>3", function()
+			ui.nav_file(3)
+		end, { desc = "Jump to 3rd Harpoon mark" })
+		map("n", "<leader>4", function()
+			ui.nav_file(4)
+		end, { desc = "Jump to 4th Harpoon mark" })
+		map("n", "<leader>5", function()
+			ui.nav_file(5)
+		end, { desc = "Jump to 5th Harpoon mark" })
+	end,
+}
