@@ -16,4 +16,7 @@ return {
 			style = "deep",
 		},
 	},
+	{ "Mofiqul/vscode.nvim", opts = {
+		italic_comments = false,
+	} },
 }
