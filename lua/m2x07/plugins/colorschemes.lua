@@ -1,8 +1,7 @@
 return {
-	-- some colorschemes
+	-- some Colorschemes
 	{
 		"folke/tokyonight.nvim",
-		lazy = false,
 		priority = 1000,
 		opts = {
 			style = "night",
@@ -11,8 +10,10 @@ return {
 			},
 		},
 	},
-	{ "navarasu/onedark.nvim", opts = {
-		style = "deep",
-	} },
-	{ "judaew/ronny.nvim", opts = {} },
+	{
+		"navarasu/onedark.nvim",
+		opts = {
+			style = "deep",
+		},
+	},
 }

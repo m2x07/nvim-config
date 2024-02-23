@@ -1,7 +1,15 @@
 return {
 	"nvim-tree/nvim-tree.lua",
 	version = "*",
-	lazy = false,
+	lazy = true,
+	keys = {
+		{
+			"<leader><F4>",
+			function()
+				vim.cmd("NvimTreeToggle")
+			end,
+		},
+	},
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},

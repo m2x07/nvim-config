@@ -7,7 +7,7 @@ return {
 		local db = require("dashboard")
 		local conf = {}
 
-		conf.header = headers.merlin
+		conf.header = headers.m2x07
 		conf.disable_move = true
 		conf.center = {
 			{
@@ -49,16 +49,6 @@ return {
 				key_hl = "DiagnosticOk",
 				key_format = "[ %s ]",
 				action = "Telescope help_tags",
-			},
-			{
-				icon = "󰙅  ",
-				icon_hl = "Title",
-				desc = "File Tree                   ",
-				desc_hl = "Title",
-				key = "t",
-				key_hl = "DiagnosticOk",
-				key_format = "[ %s ]",
-				action = "NvimTreeToggle",
 			},
 			{
 				icon = "󰒓  ",

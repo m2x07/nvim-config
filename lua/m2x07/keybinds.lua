@@ -34,9 +34,6 @@ map("v", ">", ">gv", opts)
 map("x", "<A-K>", ":move '<-2<cr>gv-gv", o("force", opts, { desc = "Move selection UP by one line" }))
 map("x", "<A-J>", ":move '>+1<cr>gv-gv", o("force", opts, { desc = "Move selection DOWN by one line" }))
 
--- NvimTree related maps
-map({ "n", "i" }, "<leader><F4>", vim.cmd.NvimTreeToggle, o("force", opts, { desc = "Toggle Filetree" }))
-
 -- Document related keybinds
 map("n", "<leader>ds", ":w<cr>", o("force", opts, { desc = "Save Document" }))
 map("n", "<leader>dq", ":q<cr>", o("force", opts, { desc = "Quit Document" }))
@@ -45,3 +42,6 @@ map("n", "<leader>dq", ":q<cr>", o("force", opts, { desc = "Quit Document" }))
 map("v", "<leader>y", '"+y', o("force", opts, { desc = "Copy to system clipboard" }))
 map("v", "<leader>p", '"+p', o("force", opts, { desc = "Paste from system clipboard after cursor" }))
 map("v", "<leader>P", '"+P', o("force", opts, { desc = "Paste from system clipboard before cursor" }))
+
+-- Open lazy window
+map("n", "<leader>L", vim.cmd.Lazy, o("force", opts, { desc = "Open Lazy window" }))

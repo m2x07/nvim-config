@@ -6,13 +6,16 @@ return {
 	-- ibl
 	{
 		"numToStr/Comment.nvim",
-		lazy = false,
+		lazy = true,
+		event = "BufReadPost",
 		opts = {
+			padding = true,
 			sticky = true,
 		},
 	},
 	{
 		"windwp/nvim-autopairs",
+		lazy = true,
 		event = "InsertEnter",
 		opts = {
 			check_ts = true,
@@ -22,6 +25,8 @@ return {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		lazy = true,
+		event = "BufReadPost",
 		main = "ibl",
 		opts = {
 			indent = {
@@ -35,6 +40,8 @@ return {
 	},
 	{
 		"norcalli/nvim-colorizer.lua",
+		lazy = true,
+		event = "BufReadPost",
 		opts = {
 			"*",
 			html = {

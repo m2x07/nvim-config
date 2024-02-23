@@ -11,6 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- TIP: lazy window can be opened through <Leader>L. see 'keybinds.lua'
+
 local lazyopts = {
 	install = {
 		missing = true,

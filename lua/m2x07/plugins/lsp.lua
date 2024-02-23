@@ -1,12 +1,12 @@
+-- spec for all lsp and related plugins
 return {
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
-
-	-- lsp
 	{
 		"VonHeikemen/lsp-zero.nvim",
+		lazy = true,
+		event = "BufReadPre",
 		branch = "v3.x",
 		dependencies = {
-			-- LSP Support
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
 			{ "neovim/nvim-lspconfig" },
