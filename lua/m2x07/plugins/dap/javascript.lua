@@ -1,5 +1,7 @@
 return {
 	"mxsdev/nvim-dap-vscode-js",
+	lazy = true,
+	ft = "javascript",
 	config = function()
 		require("dap-vscode-js").setup({
 			debugger_path = os.getenv("HOME") .. "/.local/src/vscode-js-debug",

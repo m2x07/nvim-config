@@ -36,7 +36,6 @@ map("x", "<A-J>", ":move '>+1<cr>gv-gv", o("force", opts, { desc = "Move selecti
 
 -- Document related keybinds
 map("n", "<leader>ds", ":w<cr>", o("force", opts, { desc = "Save Document" }))
-map("n", "<leader>dq", ":q<cr>", o("force", opts, { desc = "Quit Document" }))
 
 -- Better system clipboard support
 map("v", "<leader>y", '"+y', o("force", opts, { desc = "Copy to system clipboard" }))

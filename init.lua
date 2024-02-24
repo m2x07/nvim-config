@@ -1,1 +1,1 @@
-require('m2x07')
+require("m2x07")

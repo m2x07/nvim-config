@@ -1,5 +1,7 @@
 return {
 	"mfussenegger/nvim-lint",
+	lazy = true,
+	event = "BufReadPre",
 	config = function()
 		local linter = require("lint")
 

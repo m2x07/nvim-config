@@ -1,15 +1,15 @@
 -- spec for all lsp and related plugins
 return {
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
+	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason-lspconfig.nvim" },
+	{ "neovim/nvim-lspconfig" },
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		lazy = true,
 		event = "BufReadPre",
 		branch = "v3.x",
 		dependencies = {
-			{ "williamboman/mason.nvim" },
-			{ "williamboman/mason-lspconfig.nvim" },
-			{ "neovim/nvim-lspconfig" },
 
 			-- Autocompletion
 			{ "hrsh7th/nvim-cmp" },
@@ -64,7 +64,7 @@ return {
 					"prettier",
 					"eslint_d",
 				},
-				run_on_start = true,
+				run_on_start = false,
 			})
 
 			-- AUTO COMPLETIONS
