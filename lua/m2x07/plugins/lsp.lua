@@ -3,7 +3,7 @@ return {
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
-	{ "neovim/nvim-lspconfig", lazy = true, event = "BufReadPre" },
+	{ "neovim/nvim-lspconfig" },
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		lazy = true,
