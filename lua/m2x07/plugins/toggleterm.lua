@@ -12,7 +12,7 @@ return {
 		open_mapping = [[<leader><F2>]],
 		insert_mappings = true,
 		autochdir = true,
-		direction = "float",
+		direction = "horizontal",
 		auto_scroll = true,
 		float_opts = {
 			border = "curved",
