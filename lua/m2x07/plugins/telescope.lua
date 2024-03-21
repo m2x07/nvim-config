@@ -6,7 +6,7 @@ return {
 		local builtin = require("telescope.builtin")
 		local telescope = require("telescope")
 
-		function myfind()
+		local function myfind()
 			builtin.find_files({ hidden = true })
 		end
 
@@ -20,7 +20,7 @@ return {
 		telescope.setup({
 			defaults = {
 				file_ignore_patterns = {
-					-- "node_modules",
+					"node_modules",
 					".git",
 				},
 			},

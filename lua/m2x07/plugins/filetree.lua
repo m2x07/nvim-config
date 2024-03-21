@@ -19,7 +19,7 @@ return {
 		},
 		actions = {
 			expand_all = {
-				exclude = { ".git", ".node_modules" },
+				exclude = { ".git", ".node_modules", "node_modules" },
 			},
 			open_file = {
 				quit_on_open = true,

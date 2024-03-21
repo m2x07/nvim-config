@@ -10,7 +10,7 @@ return {
 			end
 		end,
 		open_mapping = [[<leader><F2>]],
-		insert_mappings = true,
+		insert_mappings = false,
 		autochdir = true,
 		direction = "horizontal",
 		auto_scroll = true,
