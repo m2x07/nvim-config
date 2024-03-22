@@ -7,6 +7,7 @@ return {
 		"mfussenegger/nvim-dap",
 		dependencies = {
 			{ "rcarriga/nvim-dap-ui", module = false },
+			{ "nvim-neotest/nvim-nio" },
 		},
 		lazy = true,
 		event = "BufReadPost",
