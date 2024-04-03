@@ -13,14 +13,19 @@ return {
 	{
 		"navarasu/onedark.nvim",
 		opts = {
-			style = "deep",
+			style = "dark",
 		},
 	},
+	-- {
+	-- 	"Mofiqul/vscode.nvim",
+	-- 	opts = {
+	-- 		italic_comments = false,
+	-- 	},
+	-- },
 	{
-		"Mofiqul/vscode.nvim",
-		opts = {
-			italic_comments = false,
-		},
+		"rockyzhang24/arctic.nvim",
+		branch = "v2",
+		dependencies = { "rktjmp/lush.nvim" },
 	},
 	{
 		"rose-pine/neovim",
@@ -34,4 +39,10 @@ return {
 			},
 		},
 	},
+	{
+		"projekt0n/github-nvim-theme",
+		lazy = false,
+	},
+	{ "EdenEast/nightfox.nvim" }, -- lazy
+	{ "titanzero/zephyrium" },
 }

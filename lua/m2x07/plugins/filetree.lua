@@ -15,7 +15,7 @@ return {
 	},
 	opts = {
 		view = {
-			width = 40,
+			width = 30,
 		},
 		actions = {
 			expand_all = {

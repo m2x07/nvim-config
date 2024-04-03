@@ -7,7 +7,7 @@ return {
 		local db = require("dashboard")
 		local conf = {}
 
-		conf.header = headers.m2x07
+		conf.header = headers.nvim
 		conf.disable_move = true
 		conf.center = {
 			{
