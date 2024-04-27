@@ -35,7 +35,7 @@ return {
 		{
 			"<leader>4",
 			function()
-				require("harpoon.ui").nav_file(3)
+				require("harpoon.ui").nav_file(4)
 			end,
 		},
 		{
