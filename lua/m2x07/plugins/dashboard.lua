@@ -28,7 +28,7 @@ return {
 				key = "f",
 				key_hl = "DiagnosticOk",
 				key_format = "[ %s ]",
-				action = "Telescope find_files",
+				action = "Telescope find_files hidden=true",
 			},
 			{
 				icon = "󰈞  ",
