@@ -16,12 +16,6 @@ return {
 			style = "deep",
 		},
 	},
-	-- {
-	-- 	"Mofiqul/vscode.nvim",
-	-- 	opts = {
-	-- 		italic_comments = false,
-	-- 	},
-	-- },
 	{
 		"rockyzhang24/arctic.nvim",
 		branch = "v2",
@@ -38,10 +32,6 @@ return {
 				transparency = false,
 			},
 		},
-	},
-	{
-		"projekt0n/github-nvim-theme",
-		lazy = false,
 	},
 	{ "EdenEast/nightfox.nvim" }, -- lazy
 	{ "titanzero/zephyrium" },
