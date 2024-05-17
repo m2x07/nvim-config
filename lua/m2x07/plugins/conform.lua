@@ -19,10 +19,10 @@ return {
 				json = { "prettier" },
 				lua = { "stylua" },
 			},
-			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-			},
+			-- format_on_save = {
+			-- 	lsp_fallback = true,
+			-- 	async = false,
+			-- },
 		})
 
 		vim.keymap.set({ "n", "v" }, "<leader>df", function()

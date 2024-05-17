@@ -105,7 +105,7 @@ return {
 					["<C-d>"] = cmp.mapping.scroll_docs(4),
 				}),
 				sources = cmp.config.sources({
-					{ name = "buffer" },
+					-- { name = "buffer" },
 					{ name = "path" },
 					{ name = "luasnip" },
 					{ name = "nvim_lsp" },
