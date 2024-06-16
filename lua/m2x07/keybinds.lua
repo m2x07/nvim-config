@@ -2,8 +2,8 @@ local map = vim.keymap.set
 local o = vim.tbl_deep_extend
 
 local opts = {
-	silent = true,
-	noremap = true,
+    silent = true,
+    noremap = true,
 }
 
 -- Better split window creation
@@ -25,6 +25,8 @@ map("n", "<C-Right>", ":vertical resize -2<cr>", o("force", opts, { desc = "Decr
 -- Center search results
 map("n", "n", "nzz", o("force", opts, { desc = "Go to next match" }))
 map("n", "N", "Nzz", o("force", opts, { desc = "Go to previous match" }))
+map("n", "j", "jzz", o("force", opts, { desc = "Move one line down" }))
+map("n", "k", "kzz", o("force", opts, { desc = "Move one line up" }))
 
 -- Preserve select on indent
 map("v", "<", "<gv", opts)
