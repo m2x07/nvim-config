@@ -3,7 +3,7 @@ local opt = vim.opt
 -- Editor Settings
 opt.number = true
 opt.relativenumber = true
-opt.scrolloff = 8
+opt.scrolloff = 16
 opt.colorcolumn = "100"
 opt.signcolumn = "yes"
 opt.cursorline = true
