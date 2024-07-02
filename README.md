@@ -45,4 +45,4 @@ Run `:checkhealth` after installing
 -   If the plugin requires very minimal or no config, you can put it inside of
     `extra.lua` file keep the directory structure clean
 
-<sub><sup><i>Feel free to open a PR for anything :)</i><sup></sub>
+<sub>Feel free to open a PR for anything :)</sub>
