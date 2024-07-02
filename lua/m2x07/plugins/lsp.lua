@@ -167,6 +167,7 @@ return {
             html = {},
             cssls = {},
             tsserver = {},
+            marksman = {},
             lua_ls = {
                 -- capabilities = {},
                 settings = {
@@ -184,6 +185,8 @@ return {
         local ensure_installed = vim.tbl_keys(servers or {})
         vim.list_extend(ensure_installed, {
             "stylua",
+            "prettier",
+            "marksman",
         })
 
         require("mason").setup({
