@@ -1,107 +1,107 @@
 -- extra tools and miscellaneous functions
 
 return {
-    { -- INFO: better comments
-        "folke/todo-comments.nvim",
-        event = "VimEnter",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        opts = { signs = true },
-    },
+  { -- INFO: better comments
+    "folke/todo-comments.nvim",
+    event = "VimEnter",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = { signs = true },
+  },
 
-    { "numToStr/Comment.nvim", opts = {} },
+  { "numToStr/Comment.nvim", opts = {} },
 
-    { -- Adds git related signs to the gutter, as well as utilities for managing changes
-        "lewis6991/gitsigns.nvim",
-        opts = {
-            signs = {
-                add = { text = "+" },
-                change = { text = "~" },
-                delete = { text = "_" },
-                topdelete = { text = "‾" },
-                changedelete = { text = "~" },
-            },
-        },
+  { -- Adds git related signs to the gutter, as well as utilities for managing changes
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      signs = {
+        add = { text = "+" },
+        change = { text = "~" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+      },
     },
+  },
 
-    {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        opts = {
-            check_ts = true,
-            disable_filetyp = { "TelescopePrompt", "vim" },
-            enable_check_bracket_line = true,
-        },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {
+      check_ts = true,
+      disable_filetyp = { "TelescopePrompt", "vim" },
+      enable_check_bracket_line = true,
     },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        lazy = true,
-        event = "BufReadPost",
-        main = "ibl",
-        opts = {
-            indent = {
-                char = "▏",
-            },
-            exclude = {
-                filetypes = { "dashboard" },
-                buftypes = { "terminal" },
-            },
-        },
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    lazy = true,
+    event = "BufReadPost",
+    main = "ibl",
+    opts = {
+      indent = {
+        char = "▏",
+      },
+      exclude = {
+        filetypes = { "dashboard" },
+        buftypes = { "terminal" },
+      },
     },
-    {
-        "norcalli/nvim-colorizer.lua",
-        lazy = true,
-        event = "BufReadPost",
-        opts = {
-            "*",
-            html = {
-                names = true,
-                rgb_fn = true,
-                hsl_fn = true,
-                css = true,
-                css_fn = true,
-                RRGGBBAA = true,
-            },
-            css = {
-                names = true,
-                rgb_fn = true,
-                hsl_fn = true,
-                css = true,
-                css_fn = true,
-                RRGGBBAA = true,
-            },
-            javascript = {
-                names = true,
-                rgb_fn = true,
-                hsl_fn = true,
-                css = true,
-                css_fn = true,
-                RRGGBBAA = true,
-            },
-            user_default_options = {
-                tailwind = true,
-            },
-        },
+  },
+  {
+    "norcalli/nvim-colorizer.lua",
+    lazy = true,
+    event = "BufReadPost",
+    opts = {
+      "*",
+      html = {
+        names = true,
+        rgb_fn = true,
+        hsl_fn = true,
+        css = true,
+        css_fn = true,
+        RRGGBBAA = true,
+      },
+      css = {
+        names = true,
+        rgb_fn = true,
+        hsl_fn = true,
+        css = true,
+        css_fn = true,
+        RRGGBBAA = true,
+      },
+      javascript = {
+        names = true,
+        rgb_fn = true,
+        hsl_fn = true,
+        css = true,
+        css_fn = true,
+        RRGGBBAA = true,
+      },
+      user_default_options = {
+        tailwind = true,
+      },
     },
-    {
-        "iamcco/markdown-preview.nvim",
-        cmd = {
-            "MarkdownPreviewToggle",
-            "MarkdownPreview",
-            "MarkdownPreviewStop",
-        },
-        ft = { "markdown" },
-        build = function()
-            vim.fn["mkdp#util#install"]()
-        end,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = {
+      "MarkdownPreviewToggle",
+      "MarkdownPreview",
+      "MarkdownPreviewStop",
     },
-    {
-        "folke/zen-mode.nvim",
-        lazy = true,
-        cmd = "ZenMode",
-        opts = {
-            window = {
-                width = 150,
-            },
-        },
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
+  {
+    "folke/zen-mode.nvim",
+    lazy = true,
+    cmd = "ZenMode",
+    opts = {
+      window = {
+        width = 150,
+      },
     },
+  },
 }
