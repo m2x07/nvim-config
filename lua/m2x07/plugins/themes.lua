@@ -1,6 +1,13 @@
 return {
   {
+    "navarasu/onedark.nvim",
+    opts = {
+      style = "darker",
+    },
+  },
+  {
     "folke/tokyonight.nvim",
+    lazy = true,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       require("tokyonight").setup({

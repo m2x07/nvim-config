@@ -22,10 +22,13 @@ return {
       }
     end,
     formatters_by_ft = {
+      -- NOTE: Do not configure formatting for javascript/typescript or any
+      -- other project, which involves using node. use the npm package for
+      -- prettier instead
       lua = { "stylua" },
       markdown = { "prettier" },
       yaml = { "prettier" },
-      json = { "prettier" },
+      json = { "prettier" }, -- INFO: json maybe used outside of node projects
     },
   },
 }

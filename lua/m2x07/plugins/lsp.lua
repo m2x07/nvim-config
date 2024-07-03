@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
@@ -165,6 +166,9 @@ return {
             },
             completion = {
               callSnippet = "Replace",
+            },
+            diagnostics = {
+              globals = { "vim" },
             },
           },
         },
