@@ -35,7 +35,7 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     lazy = true,
-    event = "BufReadPost",
+    event = "BufReadPre",
     main = "ibl",
     opts = {
       indent = {
@@ -50,7 +50,7 @@ return {
   {
     "norcalli/nvim-colorizer.lua",
     lazy = true,
-    event = "BufReadPost",
+    event = "BufReadPre",
     opts = {
       "*",
       html = {

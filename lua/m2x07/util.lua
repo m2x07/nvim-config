@@ -1,1 +1,0 @@
--- TODO: add funs and commands for terminal management

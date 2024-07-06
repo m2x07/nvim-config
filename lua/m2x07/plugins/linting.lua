@@ -8,8 +8,7 @@ return {
       -- NOTE: Do not configure linting for javascript/typescript or any
       -- other project, which involves using node. use the npm package for
       -- eslint instead
-      lua = { "luacheck" },
-      markdown = { "vale" },
+      -- lua = { "luacheck" },
     }
 
     vim.api.nvim_create_autocmd({ "BufWritePost" }, {

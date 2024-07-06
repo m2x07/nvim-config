@@ -33,7 +33,8 @@ opt.history = 100
 
 -- Misc
 opt.mouse = "a"
-vim.go.termguicolors = true
+-- vim.go.termguicolors = true
+opt.termguicolors = true
 opt.hidden = true
 opt.list = true
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }

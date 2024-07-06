@@ -25,6 +25,7 @@
 - `curl` or `wget`
 - `unzip`
 - GNU tar `tar` or `gtar`
+- A C compiler
 - `gzip`
 - `nodejs`
 - `fg`
