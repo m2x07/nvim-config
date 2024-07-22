@@ -21,7 +21,7 @@ return {
     end
 
     -- set keybinds for telescope
-    map("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
+    map("n", "<leader>sm", builtin.help_tags, { desc = "[S]earch [M]anual" })
     map("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eybinds" })
     map("n", "<leader>sf", findfiles, { desc = "[S]earch [F]iles" })
     map(

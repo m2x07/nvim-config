@@ -81,7 +81,7 @@ map(
 
 -- split window management -- 'desc' key is the description of each keybind
 map("n", "<leader>sv", "<C-w>v", { desc = "Open a vertical split" })
-map("n", "<leader>sh", "<C-w>h", { desc = "Open a horizontal split" })
+map("n", "<leader>sh", "<Cmd>split<CR>", { desc = "Open a horizontal split" })
 map("n", "<C-h>", "<C-w>h", { desc = "Shift focus towards Left" })
 map("n", "<C-j>", "<C-w>j", { desc = "Shift focus towards Right" })
 map("n", "<C-k>", "<C-w>k", { desc = "Shift focus towards Top" })
