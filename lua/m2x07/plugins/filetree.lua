@@ -43,8 +43,8 @@ return {
     filters = {
       git_ignored = false,
       custom = {
-        "^.git",
-        "^node_modules",
+        "^.git$",
+        "^node_modules$",
       },
     },
   },

@@ -13,8 +13,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
-require("lazy").setup("m2x07.plugins", {
+require("lazy").setup({
   spec = {
+    { import = "m2x07.plugins" },
     { import = "m2x07.plugins.extra.typescript" },
   },
   install = {
