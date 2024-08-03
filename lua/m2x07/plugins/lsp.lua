@@ -155,6 +155,7 @@ return {
     local servers = {
       html = {},
       cssls = {},
+      emmet_language_server = {},
       -- tsserver = {},
       marksman = {},
       lua_ls = {

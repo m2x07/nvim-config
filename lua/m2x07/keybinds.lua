@@ -110,3 +110,18 @@ map(
   ":resize +2<cr>",
   { desc = "Decrease vertical split height" }
 )
+
+-- yank/paste to system clipbaord
+map("v", "<localleader>y", '"+y', { desc = "Copy to system cipbaord" })
+map(
+  "n",
+  "<localleader>p",
+  '"+p',
+  { desc = "Paste after cursor, from system clipboard " }
+)
+map(
+  "n",
+  "<localleader>P",
+  '"+P',
+  { desc = "Paste before cursor, from system clipboard " }
+)
