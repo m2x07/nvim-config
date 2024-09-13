@@ -19,17 +19,16 @@
 - Snippets, Auto-Complete, Formatting & more...
 - Goto definitions, Auto imports, Code actions & more...
 
-## ⚡ Dependencies
+## ⚡ Dependencies (Unix systems)
 
 - `git`
+- `nodejs`
+- `fd`/`ripgrep`
 - `curl` or `wget`
 - `unzip`
 - GNU tar `tar` or `gtar`
-- A C compiler
 - `gzip`
-- `nodejs`
-- `fg`
-- `ripgrep`
+- A C compiler
 
 ## 🚀 Install
 
@@ -37,14 +36,16 @@
 git clone https://github.com/m2x07/nvim-config $HOME/.config/nvim
 ```
 
-Run `:checkhealth` after installing
+> [!IMPORTANT]
+> Run `:checkhealth` after installing
 
 ## ⚙️ Configuration
 
-- Each plugin's spec lives in its own file under `lua/m2x07/plugins`, which is our plugin directory
+- Each plugin's spec lives in its own file under `lua/m2x07/plugins`, which is our plugin directory.
+- Use `ftplugin/` for filetype specific configurations.
 - To add a new plugin, create a new file inside the plugin dir by the name
   `<your_plugin>.lua`.
 - If the plugin requires very minimal or no config, you can put it inside of
-  `extra.lua` file keep the directory structure clean
+  `extra.lua` file keep the directory structure clean.
 
-<sub>Feel free to open a PR for anything :)</sub>
+<sub>Feel free to open a PR for anything</sub>

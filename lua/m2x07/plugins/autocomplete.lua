@@ -18,6 +18,16 @@ return {
         "saadparwaiz1/cmp_luasnip",
       },
     },
+    {
+      "folke/lazydev.nvim",
+      ft = "lua",
+      opts = {
+        library = {
+          { path = "luvit-meta/library", words = { "vim%.uv" } },
+        },
+      },
+    },
+    { "Bilal2453/luvit-meta", lazy = true },
   },
   config = function()
     local cmp = require("cmp")
@@ -58,6 +68,7 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
+      ---@diagnostic disable-next-line: missing-fields
       formatting = {
         format = function(entry, vim_item)
           -- Kind icons
@@ -94,6 +105,10 @@ return {
         end, { "i", "s" }),
       }),
       sources = {
+        {
+          name = "lazydev",
+          group_index = 0,
+        },
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "path" },

@@ -6,7 +6,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     { "j-hui/fidget.nvim", opts = {} },
-    { "folke/neodev.nvim", opts = {} },
+    "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
     vim.api.nvim_create_autocmd("LspAttach", {
