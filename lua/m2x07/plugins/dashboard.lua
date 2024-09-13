@@ -28,7 +28,13 @@ return {
         key = "f",
         key_hl = "DiagnosticOk",
         key_format = "[ %s ]",
-        action = "Telescope find_files hidden=true",
+        action = function ()
+          local tl = require("telescope.builtin")
+          tl.find_files({
+            hidden = true,
+            no_ignore = true
+          })
+        end,
       },
       {
         icon = "󰈞  ",

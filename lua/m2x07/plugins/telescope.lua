@@ -17,7 +17,7 @@ return {
     })
 
     local function findfiles()
-      builtin.find_files({ hidden = true })
+      builtin.find_files({ hidden = true, no_ignore = true })
     end
 
     -- set keybinds for telescope

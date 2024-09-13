@@ -21,7 +21,7 @@ map("n", "n", "nzz", {
 
 -- move selection down
 map("x", "<A-K>", ":move '<-2<cr>gv-gv", {
-  silent = true,
+silent = true,
   noremap = true,
   desc = "Move selection up 1 line",
 })
