@@ -21,7 +21,7 @@ map("n", "n", "nzz", {
 
 -- move selection up
 map("x", "<A-K>", ":move '<-2<cr>gv-gv", {
-silent = true,
+  silent = true,
   noremap = true,
   desc = "Move selection up 1 line",
 })
@@ -111,3 +111,6 @@ map(
   '"+P',
   { desc = "Paste before cursor, from system clipboard " }
 )
+
+map({ "v", "x" }, "<C-a>", "<C-a>gv")
+map({ "v", "x" }, "<C-x>", "<C-x>gv")
