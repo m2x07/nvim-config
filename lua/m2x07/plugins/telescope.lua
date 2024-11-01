@@ -52,7 +52,12 @@ return {
     map(
       "n",
       "<leader>sc",
-      builtin.colorscheme,
+      -- builtin.colorscheme,
+      function()
+        builtin.colorscheme(require("telescope.themes").get_dropdown({
+          width = 0.5,
+        }))
+      end,
       { desc = "[S]earch [C]olorschemes" }
     )
 

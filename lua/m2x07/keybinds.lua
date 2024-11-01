@@ -1,10 +1,10 @@
 local map = vim.keymap.set
 
 -- sample default opts
-local opts = {
-  silent = true,
-  noremap = true,
-}
+-- local opts = {
+--   silent = true,
+--   noremap = true,
+-- }
 
 -- write document to disk
 map("n", "<leader>ww", "<cmd>write<CR>", {
@@ -19,14 +19,14 @@ map("n", "n", "nzz", {
   noremap = true,
 })
 
--- move selection down
+-- move selection up
 map("x", "<A-K>", ":move '<-2<cr>gv-gv", {
 silent = true,
   noremap = true,
   desc = "Move selection up 1 line",
 })
 
--- move selection up
+-- move selection down
 map("x", "<A-J>", ":move '>+1<cr>gv-gv", {
   silent = true,
   noremap = true,
@@ -44,13 +44,6 @@ map("t", "<Esc><Esc>", "<C-\\><C-n>", {
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", {
   silent = true,
   noremap = true,
-})
-
--- open lazy's (plugin manager) window
-map("n", "<leader>L", vim.cmd.Lazy, {
-  silent = true,
-  noremap = true,
-  desc = "Open [L]azy.nvim window",
 })
 
 -- lsp stuff
