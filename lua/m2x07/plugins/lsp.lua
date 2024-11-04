@@ -9,6 +9,12 @@ return {
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+    vim.lsp.handlers.hover, {
+      border = "single",
+      title = "Documentation"
+    }
+    )
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("m2x07-lsp-attach", { clear = true }),
       callback = function(event)
@@ -52,14 +58,6 @@ return {
           "<leader>D",
           require("telescope.builtin").lsp_type_definitions,
           "Type [D]efinition"
-        )
-
-        -- Fuzzy find all the symbols in your current document.
-        --  Symbols are things like variables, functions, types, etc.
-        map(
-          "<leader>ds",
-          require("telescope.builtin").lsp_document_symbols,
-          "[D]ocument [S]ymbols"
         )
 
         -- Fuzzy find all the symbols in your current workspace.

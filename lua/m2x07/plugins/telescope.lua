@@ -6,9 +6,16 @@ return {
   config = function()
     local builtin = require("telescope.builtin")
     local map = vim.keymap.set
+    local my_borderchars = {
+      { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+      prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+      results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+      preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+    }
     -- start telescope
     require("telescope").setup({
       defaults = {
+        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         file_ignore_patterns = {
           "node_modules",
           ".git/",
@@ -24,12 +31,6 @@ return {
     map("n", "<leader>sm", builtin.help_tags, { desc = "[S]earch [M]anual" })
     map("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eybinds" })
     map("n", "<leader>sf", findfiles, { desc = "[S]earch [F]iles" })
-    map(
-      "n",
-      "<leader>ss",
-      builtin.builtin,
-      { desc = "[S]earch [S]elect Telescope" }
-    )
     map(
       "n",
       "<leader>sw",
@@ -55,6 +56,7 @@ return {
       -- builtin.colorscheme,
       function()
         builtin.colorscheme(require("telescope.themes").get_dropdown({
+          borderchars = my_borderchars,
           width = 0.5,
         }))
       end,
@@ -64,6 +66,7 @@ return {
     vim.keymap.set("n", "<leader>/", function()
       builtin.current_buffer_fuzzy_find(
         require("telescope.themes").get_dropdown({
+          borderchars = my_borderchars,
           winblend = 10,
           previewer = false,
         })

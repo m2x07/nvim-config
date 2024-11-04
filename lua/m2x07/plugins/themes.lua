@@ -1,4 +1,29 @@
 return {
+  "rebelot/kanagawa.nvim",
+  {
+    "olivercederborg/poimandres.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("poimandres").setup({
+        -- leave this setup function empty for default config
+        -- or refer to the configuration section
+        -- for configuration options
+      })
+    end,
+
+    -- optionally set the colorscheme within lazy config
+    init = function()
+      -- vim.cmd("colorscheme poimandres")
+    end,
+  },
+  {
+    "Mofiqul/vscode.nvim",
+    opts = {
+      italic_comments = true,
+      underline_links = true,
+    },
+  },
   {
     "navarasu/onedark.nvim",
     opts = {
@@ -19,7 +44,6 @@ return {
       })
     end,
   },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
   {
     "projekt0n/github-nvim-theme",
@@ -29,11 +53,9 @@ return {
     config = function()
       require("github-theme").setup({
         options = {
-          dim_inactive = true
-        }
+          dim_inactive = true,
+        },
       })
-
-      vim.cmd("colorscheme github_dark")
     end,
   },
 }
