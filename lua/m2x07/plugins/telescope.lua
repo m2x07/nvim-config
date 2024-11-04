@@ -57,7 +57,14 @@ return {
       function()
         builtin.colorscheme(require("telescope.themes").get_dropdown({
           borderchars = my_borderchars,
-          width = 0.5,
+          layout_config = {
+            width = 0.3,
+            height = 0.2,
+          },
+          -- this option 'previews' the theme as soon as it is highlighted
+          enable_preview = true,
+          -- while this disables the telescope's preview pane, or view
+          previewer = false,
         }))
       end,
       { desc = "[S]earch [C]olorschemes" }
