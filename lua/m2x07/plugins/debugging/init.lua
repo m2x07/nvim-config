@@ -1,5 +1,7 @@
 return {
   "rcarriga/nvim-dap-ui",
+  lazy = true,
+  keys = { "<F5>", "<leader>b", "<leader>B" },
   dependencies = {
     "mfussenegger/nvim-dap",
     "nvim-neotest/nvim-nio",
