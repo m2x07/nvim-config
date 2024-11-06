@@ -28,31 +28,31 @@ return {
     end
 
     -- set keybinds for telescope
-    map("n", "<leader>sm", builtin.help_tags, { desc = "[S]earch [M]anual" })
-    map("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eybinds" })
-    map("n", "<leader>sf", findfiles, { desc = "[S]earch [F]iles" })
+    map("n", "<leader>tm", builtin.help_tags, { desc = "[T]elescope [M]anual" })
+    map("n", "<leader>tk", builtin.keymaps, { desc = "[T]elescope [K]eybinds" })
+    map("n", "<leader>tf", findfiles, { desc = "[T]elescope [F]iles" })
     map(
       "n",
-      "<leader>sw",
+      "<leader>tw",
       builtin.grep_string,
-      { desc = "[S]earch current [W]ord" }
+      { desc = "[T]elescope current [W]ord" }
     )
-    map("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+    map("n", "<leader>tg", builtin.live_grep, { desc = "[T]elescope by [G]rep" })
     map(
       "n",
-      "<leader>sr",
+      "<leader>tr",
       builtin.diagnostics,
-      { desc = "[S]earch [D]iagnostics" }
+      { desc = "[T]elescope [D]iagnostics" }
     )
     map(
       "n",
-      "<leader>sb",
+      "<leader>tb",
       builtin.buffers,
-      { desc = "[S]earch existing [B]uffers" }
+      { desc = "[T]elescope existing [B]uffers" }
     )
     map(
       "n",
-      "<leader>sc",
+      "<leader>tc",
       -- builtin.colorscheme,
       function()
         builtin.colorscheme(require("telescope.themes").get_dropdown({
@@ -67,7 +67,7 @@ return {
           previewer = false,
         }))
       end,
-      { desc = "[S]earch [C]olorschemes" }
+      { desc = "[T]elescope [C]olorschemes" }
     )
 
     vim.keymap.set("n", "<leader>/", function()
