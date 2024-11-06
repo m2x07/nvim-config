@@ -1,6 +1,12 @@
 return {
   "rebelot/kanagawa.nvim",
   {
+    "yashguptaz/calvera-dark.nvim",
+    config = function()
+      vim.g.calvera_italic_comments = true
+    end,
+  },
+  {
     "olivercederborg/poimandres.nvim",
     lazy = false,
     priority = 1000,
