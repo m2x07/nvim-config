@@ -44,7 +44,8 @@ return {
   {
     "norcalli/nvim-colorizer.lua",
     lazy = true,
-    event = "BufReadPre",
+    -- event = "BufReadPre",
+    cmd = { "ColorizerToggle", "ColorizerAttachToBuffer", "ColorizerDetachFromBuffer", "ColorizerReloadAllBuffer" },
     opts = {
       "*",
       html = {

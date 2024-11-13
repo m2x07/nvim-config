@@ -1,6 +1,8 @@
 ---@diagnostic disable: undefined-field
 return {
   "neovim/nvim-lspconfig",
+  lazy = true,
+  event = "BufReadPre",
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
