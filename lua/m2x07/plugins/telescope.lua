@@ -17,8 +17,8 @@ return {
       defaults = {
         borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         file_ignore_patterns = {
-          "node_modules",
-          ".git/",
+          "node_modules/",
+          "^.git/",
         },
       },
     })
