@@ -1,8 +1,6 @@
 ---@diagnostic disable: undefined-field
 return {
   "neovim/nvim-lspconfig",
-  lazy = true,
-  event = "BufReadPre",
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -11,12 +9,11 @@ return {
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-    vim.lsp.handlers.hover, {
-      border = "single",
-      title = "Hover Documentation"
-    }
-    )
+    vim.lsp.handlers["textDocument/hover"] =
+      vim.lsp.with(vim.lsp.handlers.hover, {
+        border = "single",
+        title = "Hover Documentation",
+      })
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("m2x07-lsp-attach", { clear = true }),
       callback = function(event)
@@ -212,6 +209,9 @@ return {
         )
         require("lspconfig")[server_name].setup(server)
       end,
+
+      -- avoid setting up tsserver, as it will replace 'typescript-tools.nvim'
+      ["ts_ls"] = function() end,
     })
   end,
 }
