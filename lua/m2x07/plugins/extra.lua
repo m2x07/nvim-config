@@ -3,18 +3,18 @@
 return {
   { -- INFO: better comments
     "folke/todo-comments.nvim",
-    event = "VimEnter",
+    event = "BufEnter",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = { signs = true },
   },
 
-  { "numToStr/Comment.nvim", opts = {} },
+  { "numToStr/Comment.nvim", lazy = true, event = "BufEnter", opts = {} },
 
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     "lewis6991/gitsigns.nvim",
     lazy = true,
     event = "BufReadPre",
-    opts = {}
+    opts = {},
   },
 
   {
@@ -45,7 +45,12 @@ return {
     "norcalli/nvim-colorizer.lua",
     lazy = true,
     -- event = "BufReadPre",
-    cmd = { "ColorizerToggle", "ColorizerAttachToBuffer", "ColorizerDetachFromBuffer", "ColorizerReloadAllBuffer" },
+    cmd = {
+      "ColorizerToggle",
+      "ColorizerAttachToBuffer",
+      "ColorizerDetachFromBuffer",
+      "ColorizerReloadAllBuffer",
+    },
     opts = {
       "*",
       html = {

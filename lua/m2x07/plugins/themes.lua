@@ -1,14 +1,16 @@
 return {
-  "rebelot/kanagawa.nvim",
+  { "rebelot/kanagawa.nvim", lazy = true, priority = 1000 },
   {
     "yashguptaz/calvera-dark.nvim",
+    lazy = true,
+    priority = 1000,
     config = function()
       vim.g.calvera_italic_comments = true
     end,
   },
   {
     "olivercederborg/poimandres.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       require("poimandres").setup({
@@ -25,6 +27,8 @@ return {
   },
   {
     "Mofiqul/vscode.nvim",
+    lazy = true,
+    priority = 1000,
     opts = {
       italic_comments = true,
       underline_links = true,
@@ -32,13 +36,15 @@ return {
   },
   {
     "navarasu/onedark.nvim",
+    lazy = true,
+    priority = 1000,
     opts = {
       style = "darker",
     },
   },
   {
     "folke/tokyonight.nvim",
-    lazy = true,
+    lazy = false,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       require("tokyonight").setup({
@@ -50,11 +56,17 @@ return {
       })
     end,
   },
-  { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = true,
+    priority = 1000,
+    config = true,
+    opts = ...,
+  },
   {
     "projekt0n/github-nvim-theme",
     name = "github-theme",
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    lazy = true, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       require("github-theme").setup({

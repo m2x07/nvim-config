@@ -4,6 +4,12 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
+  lazy = true,
+  keys = {
+    "<leader>ha",
+    "<leader>hl",
+    "<localleader>h"
+  },
   config = function()
     local map = vim.keymap.set
     local harpoon = require("harpoon")
@@ -15,10 +21,6 @@ return {
     end, { desc = "[H]arpoon: [A]dd file" })
     map("n", "<localleader>h", function ()
       local count = vim.v.count
-      if count < 0 then
-        vim.notify_once("Harpoon: Negative number provided. No buffer exists here", vim.log.levels.ERROR, {})
-        return
-      end
       if count == 0 then
         vim.notify_once("Harpoon: No number provided. doing nothing", vim.log.levels.ERROR, {})
         return
