@@ -25,7 +25,7 @@ return {
       icons = {
         git_placement = "signcolumn",
         show = {
-          folder = false,
+          folder = true,
         },
       },
     },
