@@ -7,7 +7,7 @@ return {
     local db = require("dashboard")
     local conf = {}
 
-    conf.header = headers.nvim
+    conf.header = headers.calvin
     conf.disable_move = true
     conf.center = {
       {
@@ -16,7 +16,7 @@ return {
         desc = "New File                    ",
         desc_hl = "Title",
         key = "n",
-        key_hl = "DiagnosticOk",
+        key_hl = "Statement",
         key_format = "[ %s ]",
         action = "enew",
       },
@@ -26,7 +26,7 @@ return {
         desc = "Find Files                  ",
         desc_hl = "Title",
         key = "f",
-        key_hl = "DiagnosticOk",
+        key_hl = "Statement",
         key_format = "[ %s ]",
         action = function ()
           local tl = require("telescope.builtin")
@@ -42,7 +42,7 @@ return {
         desc = "Find by Grep                ",
         desc_hl = "Title",
         key = "g",
-        key_hl = "DiagnosticOk",
+        key_hl = "Statement",
         key_format = "[ %s ]",
         action = "Telescope live_grep",
       },
@@ -52,7 +52,7 @@ return {
         desc = "Find Help                   ",
         desc_hl = "Title",
         key = "h",
-        key_hl = "DiagnosticOk",
+        key_hl = "Statement",
         key_format = "[ %s ]",
         action = "Telescope help_tags",
       },
@@ -62,7 +62,7 @@ return {
         desc = "Open Config                 ",
         desc_hl = "Title",
         key = "c",
-        key_hl = "DiagnosticOk",
+        key_hl = "Statement",
         key_format = "[ %s ]",
         action = "cd ~/.config/nvim | Telescope find_files",
       },
@@ -72,7 +72,7 @@ return {
         desc = "Open Lazy",
         desc_hl = "Title",
         key = "l",
-        key_hl = "DiagnosticOk",
+        key_hl = "Statement",
         key_format = "[ %s ]",
         action = "Lazy",
       },
@@ -82,7 +82,7 @@ return {
         desc = "Quit Neovim                 ",
         desc_hl = "Title",
         key = "q",
-        key_hl = "DiagnosticOk",
+        key_hl = "Statement",
         key_format = "[ %s ]",
         action = "qa",
       },
