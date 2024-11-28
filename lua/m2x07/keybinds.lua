@@ -112,5 +112,9 @@ map(
   { desc = "Paste before cursor, from system clipboard " }
 )
 
+-- restore previous selection after adjusting indent
+map({ "v", "x" }, "<", "<gv", { desc = "Indent selection to left " })
+map({ "v", "x" }, ">", ">gv", { desc = "Indent selection to right " })
+
 map({ "v", "x" }, "<C-a>", "<C-a>gv")
 map({ "v", "x" }, "<C-x>", "<C-x>gv")
