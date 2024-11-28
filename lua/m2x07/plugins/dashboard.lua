@@ -1,6 +1,8 @@
 return {
   "nvimdev/dashboard-nvim",
-  lazy = false,
+  -- lazy = false,
+  lazy = true,
+  event = "VimEnter",
   dependencies = { { "nvim-tree/nvim-web-devicons" } },
   config = function()
     local headers = require("m2x07.headers")
@@ -97,10 +99,20 @@ return {
         action = "qa",
       },
     }
-    conf.footer = {
-      "",
-      "  Welcome back, M2X07",
-    }
+    conf.footer = function()
+      local stats = require("lazy").stats()
+      local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+      return {
+        "  Welcome back, M2X07",
+        "⚡Lazy loaded "
+          .. stats.loaded
+          .. " of "
+          .. stats.count
+          .. " plugins in "
+          .. ms
+          .. "ms",
+      }
+    end
 
     db.setup({
       theme = "doom",
