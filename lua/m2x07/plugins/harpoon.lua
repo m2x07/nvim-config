@@ -8,7 +8,7 @@ return {
   keys = {
     "<leader>ha",
     "<leader>hl",
-    "<localleader>h"
+    "<localleader>h",
   },
   config = function()
     local map = vim.keymap.set
@@ -19,14 +19,18 @@ return {
     map("n", "<leader>ha", function()
       harpoon:list():add()
     end, { desc = "[H]arpoon: [A]dd file" })
-    map("n", "<localleader>h", function ()
+    map("n", "<localleader>h", function()
       local count = vim.v.count
       if count == 0 then
-        vim.notify_once("Harpoon: No number provided. doing nothing", vim.log.levels.ERROR, {})
+        vim.notify_once(
+          "Harpoon: No number provided. doing nothing",
+          vim.log.levels.ERROR,
+          {}
+        )
         return
       end
       harpoon:list():select(count)
-    end, { desc = "Open [H]arpoon file (with a count)"})
+    end, { desc = "Open [H]arpoon file (with a count)" })
     map("n", "<leader>hl", function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end, { desc = "Open [h]arpoon [L]ist" })

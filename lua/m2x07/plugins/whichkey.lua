@@ -4,8 +4,8 @@ return {
   opts = {
     preset = "modern",
     win = {
-      border = "single"
-    }
+      border = "single",
+    },
   },
   keys = {
     {

@@ -41,13 +41,14 @@ return {
         key = "f",
         key_hl = "Statement",
         key_format = "[ %s ]",
-        action = function()
-          local tl = require("telescope.builtin")
-          tl.find_files({
-            hidden = true,
-            no_ignore = true,
-          })
-        end,
+        -- action = function()
+        --   local tl = require("telescope.builtin")
+        --   tl.find_files({
+        --     hidden = true,
+        --     no_ignore = true,
+        --   })
+        -- end,
+        action = require("telescope.builtin").find_files,
       },
       {
         icon = "󰈞  ",

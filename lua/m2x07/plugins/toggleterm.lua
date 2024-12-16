@@ -4,8 +4,8 @@ return {
   lazy = true,
   keys = { "<localleader>t" },
   opts = {
-      direction = "float",
-      size = 25,
-      open_mapping = [[<localleader>t]]
+    direction = "float",
+    size = 25,
+    open_mapping = [[<localleader>t]],
   },
 }

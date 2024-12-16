@@ -70,11 +70,11 @@ return {
       },
       window = {
         completion = {
-          border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' }
+          border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
         },
         documentation = {
-          border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' }
-        }
+          border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+        },
       },
       ---@diagnostic disable-next-line: missing-fields
       formatting = {

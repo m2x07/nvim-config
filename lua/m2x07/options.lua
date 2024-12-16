@@ -51,4 +51,3 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     vim.o.background = "dark"
   end,
 })
-
