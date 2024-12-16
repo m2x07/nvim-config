@@ -2,6 +2,7 @@ return {
   "goolord/alpha-nvim",
   opts = function()
     local dashboard = require("alpha.themes.dashboard")
+    local tlb = require("telescope.builtin")
 
     local headers = require("m2x07.headers")
     local function get_random_header()
@@ -13,34 +14,28 @@ return {
       return headers[random_key]
     end
 
+    local function open_nvim_config()
+      require("telescope.builtin").find_files({
+        cwd = vim.fn.stdpath("config"),
+      })
+    end
+
     dashboard.section.header.val = get_random_header()
     dashboard.section.buttons.val = {
       dashboard.button("n", "  Edit a New File", ":enew<CR>"),
-      dashboard.button(
-        "f",
-        "󰍉  Find File to edit",
-        ":Telescope find_files hidden=true no_ignore=true<CR>"
-      ),
-      dashboard.button(
-        "g",
-        "󰈞  Find Word (grep)",
-        ":Telescope live_grep<CR>"
-      ),
-      dashboard.button(
-        "h",
-        "󰋖  Find Help (manual)",
-        ":Telescope help_tags<CR>"
-      ),
+      dashboard.button("f", "󰍉  Find File to edit", tlb.find_files),
+      dashboard.button("g", "󰈞  Find Word (grep)", tlb.live_grep),
+      dashboard.button("h", "󰋖  Find Help (manual)", tlb.help_tags),
       dashboard.button(
         "c",
         "󰒓  Open Nvim Config",
-        ":cd ~/.config/nvim | Telescope find_files hidden=true no_ignore=true<CR>"
+        ---@diagnostic disable-next-line: param-type-mismatch
+        open_nvim_config
       ),
       dashboard.button("l", "󰒲  Open Lazy.nvim", ":Lazy<CR>"),
       dashboard.button("q", "⏻  Quit NeoVim", ":qa<CR>"),
     }
 
-    dashboard.section.header.opts.hl = "Title"
     dashboard.section.footer.opts.hl = "Statement"
     dashboard.section.footer.opts.position = "center"
 
