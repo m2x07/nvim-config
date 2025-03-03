@@ -29,7 +29,7 @@ return {
     event = "VimEnter",
     priority = 1000,
     opts = {
-      italic_comments = true,
+      italic_comments = false,
       underline_links = true,
     },
   },
@@ -81,6 +81,17 @@ return {
       require("github-theme").setup({
         options = {
           dim_inactive = true,
+        },
+      })
+    end,
+  },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    config = function()
+      require("rose-pine").setup({
+        styles = {
+          italic = false,
         },
       })
     end,

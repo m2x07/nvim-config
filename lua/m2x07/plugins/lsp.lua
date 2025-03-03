@@ -152,9 +152,12 @@ return {
     )
 
     local servers = {
+      bashls = {},
       html = {},
       cssls = {},
-      emmet_language_server = {},
+      emmet_language_server = {
+        filetypes = { "css", "eruby", "html", "htmldjango", "less", "pug", "sass", "scss", "htmlangular" }
+      },
       ts_ls = {},
       marksman = {},
       gopls = {},
@@ -182,6 +185,7 @@ return {
       "marksman",
     })
 
+---@diagnostic disable-next-line: missing-fields
     require("mason").setup({
       ui = {
         icons = {

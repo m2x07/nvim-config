@@ -87,13 +87,13 @@ map(
 map(
   "n",
   "<C-Up>",
-  ":resize -2<cr>",
+  ":resize +2<cr>",
   { desc = "Increase vertical split height" }
 )
 map(
   "n",
   "<C-Down>",
-  ":resize +2<cr>",
+  ":resize -2<cr>",
   { desc = "Decrease vertical split height" }
 )
 
