@@ -40,8 +40,8 @@ opt.hidden = true
 opt.list = true
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 opt.updatetime = 250
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 0
+vim.g.loaded_netrwPlugin = 0
 
 vim.g.background = "dark"
 

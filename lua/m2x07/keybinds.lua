@@ -19,20 +19,6 @@ map("n", "n", "nzz", {
   noremap = true,
 })
 
--- move selection up
-map("x", "<A-K>", ":move '<-2<cr>gv-gv", {
-  silent = true,
-  noremap = true,
-  desc = "Move selection up 1 line",
-})
-
--- move selection down
-map("x", "<A-J>", ":move '>+1<cr>gv-gv", {
-  silent = true,
-  noremap = true,
-  desc = "Move selection down 1 line",
-})
-
 -- change to normal from terminal mode
 map("t", "<Esc><Esc>", "<C-\\><C-n>", {
   silent = true,
