@@ -15,15 +15,9 @@ return {
     vim.diagnostic.config({
       virtual_text = true,
       float = {
-        border = "single"
-      }
+        border = "single",
+      },
     })
-    -- Deprecated, still looking for a fix
-    -- vim.lsp.handlers.["textDocument/hover"] = vim.lsp.with
-    --   vim.lsp.with(vim.lsp.handlers.hover, {
-    --     border = "single",
-    --     title = "Hover Documentation",
-    --   })
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("m2x07-lsp-attach", { clear = true }),
       callback = function(event)
@@ -86,8 +80,12 @@ return {
         map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
         -- Opens a popup that displays documentation about the word under your cursor
-        --  See `:help K` for why this keymap.
-        map("K", vim.lsp.buf.hover, "Hover Documentation")
+        map("K", function()
+          vim.lsp.buf.hover({
+            border = "single",
+            title = "Hover Documentation",
+          })
+        end, "Hover Documentation")
 
         -- WARN: This is not Goto Definition, this is Goto Declaration.
         --  For example, in C this would take you to the header.
