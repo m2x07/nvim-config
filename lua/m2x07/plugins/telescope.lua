@@ -20,6 +20,16 @@ return {
           "node_modules/",
           "^.git/",
         },
+        vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--hidden"
+        }
       },
       pickers = {
         keymaps = {
@@ -30,9 +40,6 @@ return {
         find_files = {
           no_ignore = true,
           hidden = true,
-        },
-        live_grep = {
-          disable_coordinates = true,
         },
         buffers = {
           sort_mru = true,

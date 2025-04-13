@@ -36,13 +36,17 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR>", {
 map(
   "n",
   "[d",
-  vim.diagnostic.goto_prev,
+  function()
+    vim.diagnotic.jump({ count = -1, float = true })
+  end,
   { desc = "Go to previous [D]iagnostic message" }
 )
 map(
   "n",
   "]d",
-  vim.diagnostic.goto_next,
+  function()
+    vim.diagnotic.jump({ count = 1, float = true })
+  end,
   { desc = "Go to next [D]iagnostic message" }
 )
 map(

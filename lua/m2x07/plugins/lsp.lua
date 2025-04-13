@@ -11,11 +11,19 @@ return {
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
-    vim.lsp.handlers["textDocument/hover"] =
-      vim.lsp.with(vim.lsp.handlers.hover, {
-        border = "single",
-        title = "Hover Documentation",
-      })
+    -- enable virtual text as it defaults to disabled since neovim v0.11
+    vim.diagnostic.config({
+      virtual_text = true,
+      float = {
+        border = "single"
+      }
+    })
+    -- Deprecated, still looking for a fix
+    -- vim.lsp.handlers.["textDocument/hover"] = vim.lsp.with
+    --   vim.lsp.with(vim.lsp.handlers.hover, {
+    --     border = "single",
+    --     title = "Hover Documentation",
+    --   })
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("m2x07-lsp-attach", { clear = true }),
       callback = function(event)
@@ -156,7 +164,17 @@ return {
       html = {},
       cssls = {},
       emmet_language_server = {
-        filetypes = { "css", "eruby", "html", "htmldjango", "less", "pug", "sass", "scss", "htmlangular" }
+        filetypes = {
+          "css",
+          "eruby",
+          "html",
+          "htmldjango",
+          "less",
+          "pug",
+          "sass",
+          "scss",
+          "htmlangular",
+        },
       },
       ts_ls = {},
       marksman = {},
@@ -185,7 +203,7 @@ return {
       "marksman",
     })
 
----@diagnostic disable-next-line: missing-fields
+    ---@diagnostic disable-next-line: missing-fields
     require("mason").setup({
       ui = {
         icons = {
