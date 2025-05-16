@@ -89,8 +89,8 @@ return {
       builtin.colorscheme(require("telescope.themes").get_dropdown({
         borderchars = my_borderchars,
         layout_config = {
-          width = 0.3,
-          height = 0.2,
+          width = 0.15,
+          height = 0.3,
         },
         -- this option 'previews' the theme as soon as it is highlighted
         enable_preview = true,

@@ -194,12 +194,6 @@ return {
         },
       },
     }
-    local ensure_installed = vim.tbl_keys(servers or {})
-    vim.list_extend(ensure_installed, {
-      "stylua",
-      "prettier",
-      "marksman",
-    })
 
     ---@diagnostic disable-next-line: missing-fields
     require("mason").setup({
@@ -211,29 +205,42 @@ return {
         },
       },
     })
-    require("mason-lspconfig").setup()
+    require("mason-lspconfig").setup({
+      ensure_installed = servers,
+      automatic_enable = {
+        exclude = {
+          "ts_ls"
+        }
+      }
+    })
+    local ensure_installed = vim.tbl_keys(servers or {})
+    vim.list_extend(ensure_installed, {
+      "stylua",
+      "prettier",
+      "marksman",
+    })
     require("mason-tool-installer").setup({
-      ensure_installed = ensure_installed,
+      ensure_installed = servers,
     })
 
-    -- automatic server setup
-    require("mason-lspconfig").setup_handlers({
-      -- default handler that will be ran for each lsp server
-      function(server_name)
-        local server = servers[server_name] or {}
-
-        -- merge server's capabilities with autocomplete capabilities
-        server.capabilities = vim.tbl_deep_extend(
-          "force",
-          {},
-          capabilities,
-          server.capabilities or {}
-        )
-        require("lspconfig")[server_name].setup(server)
-      end,
-
-      -- avoid setting up tsserver, as it will replace 'typescript-tools.nvim'
-      ["ts_ls"] = function() end,
-    })
+    -- automatic server setup // OUTDATED
+    -- require("mason-lspconfig").setup_handlers({
+    --   -- default handler that will be ran for each lsp server
+    --   function(server_name)
+    --     local server = servers[server_name] or {}
+    --
+    --     -- merge server's capabilities with autocomplete capabilities
+    --     server.capabilities = vim.tbl_deep_extend(
+    --       "force",
+    --       {},
+    --       capabilities,
+    --       server.capabilities or {}
+    --     )
+    --     require("lspconfig")[server_name].setup(server)
+    --   end,
+    --
+    --   -- avoid setting up tsserver, as it will replace 'typescript-tools.nvim'
+    --   ["ts_ls"] = function() end,
+    -- })
   end,
 }
