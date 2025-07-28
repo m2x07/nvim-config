@@ -108,3 +108,6 @@ map({ "v", "x" }, ">", ">gv", { desc = "Indent selection to right " })
 
 map({ "v", "x" }, "<C-a>", "<C-a>gv")
 map({ "v", "x" }, "<C-x>", "<C-x>gv")
+
+-- Remove keymaps
+map({"n", "i"}, "<F1>", "<Nop>", {})
