@@ -1,3 +1,6 @@
+-- INFO: Please refer to https://github.com/nvim-lua/kickstart.nvim to learn why
+-- this file is setup the way it is
+
 ---@diagnostic disable: undefined-field
 return {
   "neovim/nvim-lspconfig",
@@ -11,9 +14,13 @@ return {
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
+    local mason = require("mason")
+    mason.setup()
+
     -- enable virtual text as it defaults to disabled since neovim v0.11
     vim.diagnostic.config({
-      virtual_text = true,
+      -- virtual_text = true,
+      virtual_lines = true,
       float = {
         border = "single",
       },
@@ -175,6 +182,7 @@ return {
         },
       },
       ts_ls = {},
+      tailwindcss = {},
       marksman = {},
       gopls = {},
       lua_ls = {
@@ -206,12 +214,13 @@ return {
       },
     })
     require("mason-lspconfig").setup({
-      ensure_installed = servers,
+      ensure_installed = {},
+      automatic_installation = false,
       automatic_enable = {
         exclude = {
-          "ts_ls"
-        }
-      }
+          "ts_ls",
+        },
+      },
     })
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
@@ -220,27 +229,7 @@ return {
       "marksman",
     })
     require("mason-tool-installer").setup({
-      ensure_installed = servers,
+      ensure_installed = ensure_installed,
     })
-
-    -- automatic server setup // OUTDATED
-    -- require("mason-lspconfig").setup_handlers({
-    --   -- default handler that will be ran for each lsp server
-    --   function(server_name)
-    --     local server = servers[server_name] or {}
-    --
-    --     -- merge server's capabilities with autocomplete capabilities
-    --     server.capabilities = vim.tbl_deep_extend(
-    --       "force",
-    --       {},
-    --       capabilities,
-    --       server.capabilities or {}
-    --     )
-    --     require("lspconfig")[server_name].setup(server)
-    --   end,
-    --
-    --   -- avoid setting up tsserver, as it will replace 'typescript-tools.nvim'
-    --   ["ts_ls"] = function() end,
-    -- })
   end,
 }

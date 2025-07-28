@@ -7,8 +7,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = { signs = true },
   },
-
-  { "numToStr/Comment.nvim", lazy = true, event = "BufEnter", opts = {} },
+{ "numToStr/Comment.nvim", lazy = true, event = "BufEnter", opts = {} },
 
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     "lewis6991/gitsigns.nvim",
@@ -42,44 +41,21 @@ return {
     },
   },
   {
-    "norcalli/nvim-colorizer.lua",
-    lazy = true,
-    -- event = "BufReadPre",
-    cmd = {
-      "ColorizerToggle",
-      "ColorizerAttachToBuffer",
-      "ColorizerDetachFromBuffer",
-      "ColorizerReloadAllBuffer",
-    },
+    "catgoose/nvim-colorizer.lua",
+    event = "VeryLazy",
     opts = {
-      "*",
-      html = {
-        names = true,
-        rgb_fn = true,
-        hsl_fn = true,
-        css = true,
-        css_fn = true,
-        RRGGBBAA = true,
-      },
-      css = {
-        names = true,
-        rgb_fn = true,
-        hsl_fn = true,
-        css = true,
-        css_fn = true,
-        RRGGBBAA = true,
-      },
-      javascript = {
-        names = true,
-        rgb_fn = true,
-        hsl_fn = true,
-        css = true,
-        css_fn = true,
-        RRGGBBAA = true,
-      },
+      lazy_load = true,
       user_default_options = {
-        tailwind = true,
-      },
+        names = true,
+        name_opts = {
+          uppercase = true,
+        },
+        css = true,
+        tailwind = "both",
+        tailwind_opts = {
+          update_names = true,
+        }
+      }
     },
   },
   {
@@ -93,13 +69,13 @@ return {
   },
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    enabled = false,
+    enabled = true,
     opts = {},
     ft = { "markdown" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
-    }, -- if you use the mini.nvim suite
+    },
   },
   {
     "folke/zen-mode.nvim",
