@@ -6,6 +6,7 @@ return {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-emoji",
+    { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
     {
       -- the actual snippet engine
       "L3MON4D3/LuaSnip",
@@ -62,6 +63,22 @@ return {
       Operator = "󰆕",
       TypeParameter = "󰅲",
     }
+    local my_cmp_formatter = function(entry, vim_item)
+      -- Kind icons
+      vim_item.kind =
+        string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
+      -- Source
+      vim_item.menu = ({
+        buffer = "[Buf]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[Snip]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[LaTeX]",
+      })[entry.source.name]
+
+      -- return vim_item
+      return require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
+    end
     cmp.setup({
       snippet = {
         expand = function(args)
@@ -78,20 +95,7 @@ return {
       },
       ---@diagnostic disable-next-line: missing-fields
       formatting = {
-        format = function(entry, vim_item)
-          -- Kind icons
-          vim_item.kind =
-            string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
-          -- Source
-          vim_item.menu = ({
-            buffer = "[Buf]",
-            nvim_lsp = "[LSP]",
-            luasnip = "[Snip]",
-            nvim_lua = "[Lua]",
-            latex_symbols = "[LaTeX]",
-          })[entry.source.name]
-          return vim_item
-        end,
+        format = my_cmp_formatter,
       },
       completion = { completeopt = "menu,menuone,noinsert" },
       mapping = cmp.mapping.preset.insert({
