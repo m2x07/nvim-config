@@ -6,24 +6,6 @@ return {
     priority = 1000,
   },
   {
-    "olivercederborg/poimandres.nvim",
-    lazy = true,
-    event = "VimEnter",
-    priority = 1000,
-    config = function()
-      require("poimandres").setup({
-        -- leave this setup function empty for default config
-        -- or refer to the configuration section
-        -- for configuration options
-      })
-    end,
-
-    -- optionally set the colorscheme within lazy config
-    init = function()
-      -- vim.cmd("colorscheme poimandres")
-    end,
-  },
-  {
     "Mofiqul/vscode.nvim",
     lazy = true,
     event = "VimEnter",
@@ -48,6 +30,9 @@ return {
     lazy = true,
     event = "VimEnter",
     priority = 1000,
+    opts = {
+      no_italic = true,
+    },
   },
   {
     "folke/tokyonight.nvim",
@@ -70,7 +55,16 @@ return {
     event = "VimEnter",
     priority = 1000,
     config = true,
-    opts = ...,
+    opts = {
+      italic = {
+        strings = false,
+        emphasis = false,
+        comments = false,
+        operators = false,
+        folds = false,
+      },
+      dim_inactive = true,
+    },
   },
   {
     "rose-pine/neovim",
