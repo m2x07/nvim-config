@@ -19,7 +19,7 @@ return {
       local lualine = require("lualine")
 
       local function get_lsp()
-        local msg = "No Active Lsp"
+        local msg = "No Active LSP"
         ---@diagnostic disable-next-line: deprecated
         local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
         ---@diagnostic disable-next-line: deprecated

@@ -77,4 +77,6 @@ return {
       })
     end,
   },
+  { "kepano/flexoki-neovim", name = "flexoki" },
+  { "thepogsupreme/mountain.nvim" },
 }
