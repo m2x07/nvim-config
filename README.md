@@ -10,16 +10,7 @@
 
 </div>
 
-## ✨ Features
-
-- File Explorer
-- Beautiful Themes
-- Integrated Terminal
-- Fuzzy Finding, Find by Grep...
-- Snippets, Auto-Complete, Formatting & more...
-- Goto definitions, Auto imports, Code actions & more...
-
-## ⚡ Dependencies (Unix systems)
+## Dependencies
 
 - `git`
 - `nodejs`
@@ -30,16 +21,16 @@
 - `gzip`
 - A C compiler
 
-## 🚀 Install
+## Install
 
 ```bash
-git clone https://github.com/m2x07/nvim-config $HOME/.config/nvim
+$ git clone https://github.com/m2x07/nvim-config $HOME/.config/nvim
 ```
 
 > [!IMPORTANT]
 > Run `:checkhealth` after installing
 
-## ⚙️ Configuration
+## Configuration
 
 - Each plugin's spec lives in its own file under `lua/m2x07/plugins`, which is our plugin directory.
 - Use `ftplugin/` for filetype specific configurations.
