@@ -53,6 +53,13 @@ return {
         sections = {
           lualine_x = {
             {
+              ---@diagnostic disable-next-line: undefined-field, deprecated
+              require("noice").api.statusline.mode.get,
+              ---@diagnostic disable-next-line: deprecated, undefined-field
+              cond = require("noice").api.statusline.mode.has,
+              color = { fg = "#ff9e64" },
+            },
+            {
               get_lsp,
               icon = "",
             },

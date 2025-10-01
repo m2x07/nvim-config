@@ -7,7 +7,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = { signs = true },
   },
-{ "numToStr/Comment.nvim", lazy = true, event = "BufEnter", opts = {} },
+  { "numToStr/Comment.nvim", lazy = true, event = "BufEnter", opts = {} },
 
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     "lewis6991/gitsigns.nvim",
@@ -54,8 +54,8 @@ return {
         tailwind = "both",
         tailwind_opts = {
           update_names = true,
-        }
-      }
+        },
+      },
     },
   },
   {
@@ -85,6 +85,49 @@ return {
       window = {
         width = 150,
       },
+    },
+  },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    -- enabled = false,
+    opts = {
+      lsp = {
+        hover = {
+          enabled = false,
+        },
+      },
+      views = {
+        popup = {
+          border = {
+            style = "single",
+          },
+        },
+        cmdline_popup = {
+          border = {
+            style = "single",
+          },
+        },
+        cmdline_input = {
+          border = {
+            style = "single",
+          },
+        },
+        confirm = {
+          border = {
+            style = "single",
+          },
+        },
+        notify = {
+          border = {
+            style = "single",
+          },
+        },
+      },
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
     },
   },
 }
