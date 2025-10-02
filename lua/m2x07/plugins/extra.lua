@@ -93,12 +93,10 @@ return {
             style = "single",
           },
         },
-        notify = {
-          border = {
-            style = "single",
-          },
-        },
       },
+      notify = {
+        enabled = false,
+      }
     },
     dependencies = {
       "MunifTanjim/nui.nvim",

@@ -15,6 +15,10 @@ return {
       animate = { enabled = false },
     },
     lazygit = { enabled = true },
+    notifier = {
+      enabled = true,
+      style = "fancy",
+    },
     quickfile = { enabled = true },
     scope = { enabled = true },
     zen = {
@@ -25,8 +29,16 @@ return {
       zoom = {
         win = {
           backdrop = true,
-          width = 180,
+          width = 0,
         },
+      },
+    },
+    styles = {
+      notification = {
+        border = "single",
+      },
+      zen = {
+        backdrop = { blend = 30 },
       },
     },
   },
