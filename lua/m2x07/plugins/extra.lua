@@ -26,21 +26,6 @@ return {
     },
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
-    lazy = true,
-    event = "BufReadPre",
-    main = "ibl",
-    opts = {
-      indent = {
-        char = "▏",
-      },
-      exclude = {
-        filetypes = { "dashboard" },
-        buftypes = { "terminal" },
-      },
-    },
-  },
-  {
     "catgoose/nvim-colorizer.lua",
     event = "VeryLazy",
     opts = {
@@ -75,16 +60,6 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
-    },
-  },
-  {
-    "folke/zen-mode.nvim",
-    lazy = true,
-    cmd = "ZenMode",
-    opts = {
-      window = {
-        width = 150,
-      },
     },
   },
   {
