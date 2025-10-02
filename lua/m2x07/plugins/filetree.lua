@@ -4,7 +4,7 @@ return {
   lazy = true,
   keys = {
     {
-      "<leader><F4>",
+      "<leader>e",
       function()
         vim.cmd("NvimTreeToggle")
       end,
