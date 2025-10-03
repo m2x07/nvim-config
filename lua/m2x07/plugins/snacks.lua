@@ -7,7 +7,7 @@ return {
     bigfile = { enabled = true },
     dashboard = {
       enabled = true,
-      width = 50,
+      width = 45,
     },
     gitbrowser = { enabled = true },
     indent = {
