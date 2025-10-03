@@ -96,8 +96,10 @@ return {
       },
       notify = {
         enabled = false,
-        backend = { "snacks" }, -- switch to nvim-notify if snacks.nvim is not available
         view = "notify",
+      },
+      presets = {
+        long_message_to_split = true,
       },
     },
     dependencies = {
