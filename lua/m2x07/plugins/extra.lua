@@ -96,11 +96,12 @@ return {
       },
       notify = {
         enabled = false,
-      }
+        backend = { "snacks" }, -- switch to nvim-notify if snacks.nvim is not available
+        view = "notify",
+      },
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
     },
   },
 }

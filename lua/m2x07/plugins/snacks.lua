@@ -19,6 +19,9 @@ return {
       enabled = true,
       style = "fancy",
     },
+    notify = {
+      enabled = true,
+    },
     quickfile = { enabled = true },
     scope = { enabled = true },
     zen = {
@@ -50,6 +53,13 @@ return {
       end,
       desc = "Lazygit",
     },
+    {
+      "<leader>sn",
+      function()
+        Snacks.notifier.show_history()
+      end,
+      desc = "Show notifications history"
+    }
   },
   config = function(_, opts)
     require("snacks").setup(opts)

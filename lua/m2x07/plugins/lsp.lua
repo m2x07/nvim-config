@@ -7,8 +7,8 @@ return {
   lazy = true,
   event = "BufReadPre",
   dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason.nvim",
+    "mason-org/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     { "j-hui/fidget.nvim", opts = {} },
     "hrsh7th/cmp-nvim-lsp",
@@ -201,6 +201,7 @@ return {
           },
         },
       },
+      jdtls = {},
     }
 
     ---@diagnostic disable-next-line: missing-fields
@@ -215,7 +216,6 @@ return {
     })
     require("mason-lspconfig").setup({
       ensure_installed = {},
-      automatic_installation = false,
       automatic_enable = {
         exclude = {
           "ts_ls",
