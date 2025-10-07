@@ -29,6 +29,7 @@ return {
       markdown = { "prettier" },
       yaml = { "prettier" },
       json = { "prettier" }, -- INFO: json maybe used outside of node projects
+      sh = { "beautysh" },
     },
   },
 }

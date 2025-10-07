@@ -227,6 +227,7 @@ return {
       "stylua",
       "prettier",
       "marksman",
+      "beautysh",
     })
     require("mason-tool-installer").setup({
       ensure_installed = ensure_installed,
