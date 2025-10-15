@@ -58,8 +58,8 @@ return {
       function()
         Snacks.notifier.show_history()
       end,
-      desc = "Show notifications history"
-    }
+      desc = "Show notifications history",
+    },
   },
   config = function(_, opts)
     require("snacks").setup(opts)
@@ -69,7 +69,9 @@ return {
     end, { desc = "Toggle Zen mode (snacks.nvim)" })
     vim.api.nvim_create_user_command("Zenzoom", function()
       Snacks.zen.zoom()
-    end, { desc = "Toggle Zen zoom mode (snacks.nvim)" })
+    end, {
+      desc = "Toggle Zen zoom mode (snacks.nvim)",
+    })
   end,
   init = function()
     vim.api.nvim_create_autocmd("User", {
@@ -97,10 +99,10 @@ return {
         Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
         Snacks.toggle.diagnostics():map("<leader>ud")
         Snacks.toggle
-          .option(
-            "conceallevel",
-            { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }
-          )
+          .option("conceallevel", {
+            off = 0,
+            on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2,
+          })
           :map("<leader>uc")
         Snacks.toggle.inlay_hints():map("<leader>uh")
         Snacks.toggle.indent():map("<leader>ug")
