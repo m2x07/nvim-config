@@ -4,17 +4,6 @@ return {
     lazy = true,
     event = "VimEnter",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    -- opts = {
-    --   options = {
-    --     icons_enabled = true,
-    --     theme = "auto",
-    --     component_separators = { left = "", right = "" },
-    --     section_separators = { left = "", right = "" },
-    --   },
-    --   sections = {
-    --     lualine_c =
-    --   }
-    -- },
     config = function()
       local lualine = require("lualine")
 
@@ -41,14 +30,8 @@ return {
         options = {
           icons_enabled = true,
           theme = "auto",
-          -- component_separators = { left = "", right = "" },
-          -- section_separators = { left = "", right = "" },
           component_separators = { left = "|", right = "|" },
           section_separators = { left = "", right = "" },
-          -- disabled_filetypes = {
-          --   statusline = { "alpha" },
-          --   winbar = { "alpha" },
-          -- },
         },
         sections = {
           lualine_x = {
@@ -66,6 +49,18 @@ return {
             "fileformat",
             "filetype",
           },
+        },
+        tabline = {
+          lualine_a = {
+            {
+              "buffers",
+              filetype_names = {
+                snacks_picker_list = "Explorer",
+              },
+              use_mode_colors = true,
+            },
+          },
+          lualine_z = { "tabs" },
         },
       })
     end,

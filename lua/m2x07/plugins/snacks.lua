@@ -36,6 +36,9 @@ return {
         },
       },
     },
+    explorer = {
+      enabled = true,
+    },
     styles = {
       notification = {
         border = "single",
@@ -59,6 +62,13 @@ return {
         Snacks.notifier.show_history()
       end,
       desc = "Show notifications history",
+    },
+    {
+      "<leader>e",
+      function()
+        Snacks.explorer()
+      end,
+      desc = "File explorer",
     },
   },
   config = function(_, opts)
