@@ -33,22 +33,12 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR>", {
 })
 
 -- lsp stuff
-map(
-  "n",
-  "[d",
-  function()
-    vim.diagnotic.jump({ count = -1, float = true })
-  end,
-  { desc = "Go to previous [D]iagnostic message" }
-)
-map(
-  "n",
-  "]d",
-  function()
-    vim.diagnotic.jump({ count = 1, float = true })
-  end,
-  { desc = "Go to next [D]iagnostic message" }
-)
+map("n", "[d", function()
+  vim.diagnotic.jump({ count = -1, float = true })
+end, { desc = "Go to previous [D]iagnostic message" })
+map("n", "]d", function()
+  vim.diagnotic.jump({ count = 1, float = true })
+end, { desc = "Go to next [D]iagnostic message" })
 map(
   "n",
   "<leader>e",
@@ -110,4 +100,4 @@ map({ "v", "x" }, "<C-a>", "<C-a>gv")
 map({ "v", "x" }, "<C-x>", "<C-x>gv")
 
 -- Remove keymaps
-map({"n", "i"}, "<F1>", "<Nop>", {})
+map({ "n", "i" }, "<F1>", "<Nop>", {})
