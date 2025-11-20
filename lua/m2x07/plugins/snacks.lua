@@ -17,7 +17,7 @@ return {
     lazygit = { enabled = true },
     notifier = {
       enabled = true,
-      style = "fancy",
+      -- style = "fancy",
     },
     notify = {
       enabled = true,
@@ -41,6 +41,9 @@ return {
     },
     styles = {
       notification = {
+        border = "single"
+      },
+      notification_history = {
         border = "single",
       },
       zen = {
