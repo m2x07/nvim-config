@@ -39,9 +39,17 @@ return {
     explorer = {
       enabled = true,
     },
+    picker = {
+      enabled = false,
+      sources = {
+        explorer = {
+          auto_close = true,
+        },
+      },
+    },
     styles = {
       notification = {
-        border = "single"
+        border = "single",
       },
       notification_history = {
         border = "single",
