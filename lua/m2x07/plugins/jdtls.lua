@@ -27,8 +27,6 @@ local config = {
     "-Dlog.level=ALL",
     "-Xms1g",
     "--add-modules=ALL-SYSTEM",
-    "--add-opens",
-    "--add-opens",
     "-jar",
     vim.fn.glob(
       data .. "/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"

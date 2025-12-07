@@ -1,30 +1,59 @@
--- INFO: Please refer to https://github.com/nvim-lua/kickstart.nvim to learn why
--- this file is setup the way it is
-
----@diagnostic disable: undefined-field
 return {
-  "neovim/nvim-lspconfig",
-  lazy = true,
-  event = "BufReadPre",
+  "mason-org/mason-lspconfig.nvim",
   dependencies = {
-    "mason-org/mason.nvim",
-    "mason-org/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    { "j-hui/fidget.nvim", opts = {} },
+    {
+      "mason-org/mason.nvim",
+      opts = {
+        ui = {
+          icons = {
+            package_installed = "󰸞",
+            package_pending = "",
+            package_uninstalled = "",
+          },
+        },
+      },
+    },
+    "neovim/nvim-lspconfig",
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
-    local mason = require("mason")
-    mason.setup()
+    -- install, enable and setup lsp servers
+    require("mason-lspconfig").setup({
+      ensure_installed = {
+        "lua_ls",
+        "html",
+        "cssls",
+        "emmet_language_server",
+        "ts_ls",
+        "tailwindcss",
+        "marksman",
+        "gopls",
+        "jdtls",
+        "bashls",
+      },
+      automatic_enable = {
+        exclude = {
+          "ts_ls",
+          "jdtls",
+        },
+      },
+    })
+
+    -- enable lsp completions
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    vim.lsp.config("*", {
+      capabilities = capabilities,
+    })
 
     -- enable virtual text as it defaults to disabled since neovim v0.11
     vim.diagnostic.config({
-      -- virtual_text = true,
       virtual_lines = true,
       float = {
         border = "single",
       },
     })
+
+    --
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("m2x07-lsp-attach", { clear = true }),
       callback = function(event)
@@ -154,83 +183,6 @@ return {
           end, "[T]oggle Inlay [H]ints")
         end
       end,
-    })
-
-    -- add autocomplete capabilities from lsp
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend(
-      "force",
-      capabilities,
-      require("cmp_nvim_lsp").default_capabilities()
-    )
-
-    local servers = {
-      bashls = {},
-      html = {},
-      cssls = {},
-      emmet_language_server = {
-        filetypes = {
-          "css",
-          "eruby",
-          "html",
-          "htmldjango",
-          "less",
-          "pug",
-          "sass",
-          "scss",
-          "htmlangular",
-        },
-      },
-      ts_ls = {},
-      tailwindcss = {},
-      marksman = {},
-      gopls = {},
-      lua_ls = {
-        -- capabilities = {},
-        settings = {
-          Lua = {
-            runtime = {
-              version = "LuaJIT",
-            },
-            completion = {
-              callSnippet = "Replace",
-            },
-            diagnostics = {
-              globals = { "vim" },
-            },
-          },
-        },
-      },
-      jdtls = {},
-    }
-
-    ---@diagnostic disable-next-line: missing-fields
-    require("mason").setup({
-      ui = {
-        icons = {
-          package_installed = "󰸞",
-          package_pending = "",
-          package_uninstalled = "",
-        },
-      },
-    })
-    require("mason-lspconfig").setup({
-      ensure_installed = {},
-      automatic_enable = {
-        exclude = {
-          "ts_ls",
-        },
-      },
-    })
-    local ensure_installed = vim.tbl_keys(servers or {})
-    vim.list_extend(ensure_installed, {
-      "stylua",
-      "prettier",
-      "marksman",
-      "beautysh",
-    })
-    require("mason-tool-installer").setup({
-      ensure_installed = ensure_installed,
     })
   end,
 }
