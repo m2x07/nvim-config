@@ -86,4 +86,12 @@ return {
   },
   { "kepano/flexoki-neovim", name = "flexoki" },
   { "thepogsupreme/mountain.nvim" },
+  {
+    "marko-cerovac/material.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      lualine_style = "stealth"
+    }
+  },
 }

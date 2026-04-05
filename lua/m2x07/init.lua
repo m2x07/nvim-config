@@ -6,4 +6,4 @@ require("m2x07.keybinds")
 require("m2x07.lazy")
 require("m2x07.utils")
 
-vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("material-deep-ocean")

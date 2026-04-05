@@ -40,6 +40,7 @@ return {
         tailwind_opts = {
           update_names = true,
         },
+        suppress_deprecation = true,
       },
     },
   },
