@@ -14,7 +14,7 @@ return {
             icon = " ",
             key = "f",
             desc = "Find File",
-            action = ":lua Snacks.picker.files()",
+            action = ":lua Snacks.picker.files({ hidden = true })",
           },
           {
             icon = " ",
@@ -140,7 +140,7 @@ return {
     {
       "<leader>ff",
       function()
-        Snacks.picker.files()
+        Snacks.picker.files({ hidden = true })
       end,
       desc = "Find Files",
     },
@@ -321,6 +321,71 @@ return {
         Snacks.picker.colorschemes()
       end,
       desc = "Search Colorschemes",
+    },
+    -- LSP
+    {
+      "gd",
+      function()
+        Snacks.picker.lsp_definitions()
+      end,
+      desc = "LSP: Goto Definition",
+    },
+    {
+      "gD",
+      function()
+        Snacks.picker.lsp_declarations()
+      end,
+      desc = "LSP: Goto Declaration",
+    },
+    {
+      "gr",
+      function()
+        Snacks.picker.lsp_references()
+      end,
+      nowait = true,
+      desc = "LSP: References",
+    },
+    {
+      "gI",
+      function()
+        Snacks.picker.lsp_implementations()
+      end,
+      desc = "LSP: Goto Implementation",
+    },
+    {
+      "gy",
+      function()
+        Snacks.picker.lsp_type_definitions()
+      end,
+      desc = "Goto Type Definition",
+    },
+    {
+      "gai",
+      function()
+        Snacks.picker.lsp_incoming_calls()
+      end,
+      desc = "LSP: Calls Incoming",
+    },
+    {
+      "gao",
+      function()
+        Snacks.picker.lsp_outgoing_calls()
+      end,
+      desc = "LSP: Calls Outgoing",
+    },
+    {
+      "<leader>ss",
+      function()
+        Snacks.picker.lsp_symbols()
+      end,
+      desc = "LSP: LSP Symbols",
+    },
+    {
+      "<leader>sS",
+      function()
+        Snacks.picker.lsp_workspace_symbols()
+      end,
+      desc = "LSP: Workspace Symbols",
     },
   },
   config = function(_, opts)

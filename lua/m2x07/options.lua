@@ -15,6 +15,7 @@ opt.expandtab = true
 opt.smartindent = true
 opt.inccommand = "split"
 opt.ruler = false
+opt.winborder = "single"
 -- vim.cmd("set clipboard+=unnamedplus")
 
 -- Split Magement
