@@ -91,7 +91,7 @@ return {
       enabled = false,
       sources = {
         explorer = {
-          auto_close = true,
+          auto_close = false,
         },
       },
     },

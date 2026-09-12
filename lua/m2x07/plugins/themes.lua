@@ -49,6 +49,8 @@ return {
       ---@diagnostic disable-next-line: missing-fields
       require("tokyonight").setup({
         style = "night",
+        transparent = true,
+        lualine_bold = true,
         styles = {
           comments = { italic = false },
           keywords = { italic = false },
@@ -91,7 +93,22 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
-      lualine_style = "stealth"
-    }
+      lualine_style = "stealth",
+    },
+  },
+  {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("cyberdream").setup({
+        saturation = 0.7,
+        colors = {
+          bg = "#000000",
+          -- orange = "#808080",
+          -- magenta = "#ffa500",
+        },
+      })
+    end,
   },
 }
