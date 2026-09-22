@@ -39,6 +39,13 @@ return {
       },
     })
 
+    vim.lsp.config.qmlls = {
+      cmd = { "qmlls6" },
+      filetypes = { "qml", "qmljs" },
+      root_markers = { ".git" },
+    }
+    vim.lsp.enable("qmlls")
+
     -- enable lsp completions
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     vim.lsp.config("*", {
@@ -124,7 +131,6 @@ return {
             end,
           })
         end
-
       end,
     })
   end,

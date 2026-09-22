@@ -32,7 +32,10 @@ return {
         -- Enable treesitter highlighting and disable regex syntax
         pcall(vim.treesitter.start)
         -- Enable treesitter-based indentation
-        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        local lang = vim.treesitter.language.get_lang(vim.bo.filetype)
+        if lang and vim.treesitter.query.get(lang, "indents") then
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
         -- Enable treesitter-based folding
         -- vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
         -- vim.wo[0][0].foldmethod = 'expr'
