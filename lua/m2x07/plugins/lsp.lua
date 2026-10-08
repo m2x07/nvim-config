@@ -1,137 +1,149 @@
 return {
-  "mason-org/mason-lspconfig.nvim",
-  dependencies = {
-    {
-      "mason-org/mason.nvim",
-      opts = {
-        ui = {
-          icons = {
-            package_installed = "󰸞",
-            package_pending = "",
-            package_uninstalled = "",
-          },
+    "mason-org/mason-lspconfig.nvim",
+    dependencies = {
+        {
+            "mason-org/mason.nvim",
+            opts = {
+                ui = {
+                    icons = {
+                        package_installed = "󰸞",
+                        package_pending = "",
+                        package_uninstalled = "",
+                    },
+                },
+            },
         },
-      },
+        "neovim/nvim-lspconfig",
+        "hrsh7th/cmp-nvim-lsp",
     },
-    "neovim/nvim-lspconfig",
-    "hrsh7th/cmp-nvim-lsp",
-  },
-  config = function()
-    -- install, enable and setup lsp servers
-    require("mason-lspconfig").setup({
-      ensure_installed = {
-        "lua_ls",
-        "html",
-        "cssls",
-        "emmet_language_server",
-        "ts_ls",
-        "tailwindcss",
-        "marksman",
-        "gopls",
-        "jdtls",
-        "bashls",
-      },
-      automatic_enable = {
-        exclude = {
-          "ts_ls",
-          "jdtls",
-        },
-      },
-    })
+    config = function()
+        -- install, enable and setup lsp servers
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                "lua_ls",
+                "html",
+                "cssls",
+                "emmet_language_server",
+                "ts_ls",
+                "tailwindcss",
+                "marksman",
+                "gopls",
+                "jdtls",
+                "bashls",
+            },
+            automatic_enable = {
+                exclude = {
+                    "ts_ls",
+                    "jdtls",
+                },
+            },
+        })
 
-    vim.lsp.config.qmlls = {
-      cmd = { "qmlls6" },
-      filetypes = { "qml", "qmljs" },
-      root_markers = { ".git" },
-    }
-    vim.lsp.enable("qmlls")
+        vim.lsp.config.qmlls = {
+            cmd = { "qmlls6" },
+            filetypes = { "qml", "qmljs" },
+            root_markers = { ".git" },
+        }
+        vim.lsp.enable("qmlls")
 
-    -- enable lsp completions
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
-    vim.lsp.config("*", {
-      capabilities = capabilities,
-    })
+        -- enable lsp completions
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        vim.lsp.config("*", {
+            capabilities = capabilities,
+        })
 
-    -- enable virtual text as it defaults to disabled since neovim v0.11
-    vim.diagnostic.config({
-      virtual_lines = true,
-      float = {
-        border = "single",
-      },
-    })
+        -- enable virtual text as it defaults to disabled since neovim v0.11
+        vim.diagnostic.config({
+            virtual_lines = true,
+            float = {
+                border = "single",
+            },
+        })
 
-    --
-    vim.api.nvim_create_autocmd("LspAttach", {
-      group = vim.api.nvim_create_augroup("m2x07-lsp-attach", { clear = true }),
-      callback = function(event)
-        local map = function(keys, func, desc)
-          vim.keymap.set(
-            "n",
-            keys,
-            func,
-            { buffer = event.buf, desc = "LSP: " .. desc }
-          )
-        end
-
-        -- Rename the object under your cursor.
-        --  Most Language Servers support renaming across files.
-        map("<F2>", vim.lsp.buf.rename, "Rename object under cursor")
-
-        -- Execute a code action, usually your cursor needs to be on top of an error
-        -- or a suggestion from your LSP for this to activate.
-        map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-
-        -- Opens a popup that displays documentation about the word under your cursor
-        map("K", function()
-          vim.lsp.buf.hover({
-            border = "single",
-            title = "Hover Documentation",
-          })
-        end, "Hover Documentation")
-
-        -- WARN: This is not Goto Definition, this is Goto Declaration.
-        --  For example, in C this would take you to the header.
-        map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-
-        -- The following two autocommands are used to highlight references of the
-        -- word under your cursor when your cursor rests there for a little while.
-        --    See `:help CursorHold` for information about when this is executed
         --
-        -- When you move your cursor, the highlights will be cleared (the second autocommand).
-        local client = vim.lsp.get_client_by_id(event.data.client_id)
-        if client and client.server_capabilities.documentHighlightProvider then
-          -- print(client.server_capabilities.documentHighlightProvider)
-          local highlight_augroup = vim.api.nvim_create_augroup(
-            "m2x07-lsp-highlight",
-            { clear = false }
-          )
-          vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-            buffer = event.buf,
-            group = highlight_augroup,
-            callback = vim.lsp.buf.document_highlight,
-          })
-
-          vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-            buffer = event.buf,
-            group = highlight_augroup,
-            callback = vim.lsp.buf.clear_references,
-          })
-
-          vim.api.nvim_create_autocmd("LspDetach", {
+        vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup(
-              "m2x07-lsp-detach",
-              { clear = true }
+                "m2x07-lsp-attach",
+                { clear = true }
             ),
-            callback = function(event2)
-              vim.lsp.buf.clear_references()
-              vim.api.nvim_clear_autocmds({
-                group = "m2x07-lsp-highlight",
-                buffer = event2.buf,
-              })
+            callback = function(event)
+                local map = function(keys, func, desc)
+                    vim.keymap.set(
+                        "n",
+                        keys,
+                        func,
+                        { buffer = event.buf, desc = "LSP: " .. desc }
+                    )
+                end
+
+                -- Rename the object under your cursor.
+                --  Most Language Servers support renaming across files.
+                map("<F2>", vim.lsp.buf.rename, "Rename object under cursor")
+
+                -- Execute a code action, usually your cursor needs to be on top of an error
+                -- or a suggestion from your LSP for this to activate.
+                map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+
+                -- Opens a popup that displays documentation about the word under your cursor
+                map("K", function()
+                    vim.lsp.buf.hover({
+                        border = "single",
+                        title = "Hover Documentation",
+                    })
+                end, "Hover Documentation")
+
+                -- WARN: This is not Goto Definition, this is Goto Declaration.
+                --  For example, in C this would take you to the header.
+                map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+
+                -- The following two autocommands are used to highlight references of the
+                -- word under your cursor when your cursor rests there for a little while.
+                --    See `:help CursorHold` for information about when this is executed
+                --
+                -- When you move your cursor, the highlights will be cleared (the second autocommand).
+                local client = vim.lsp.get_client_by_id(event.data.client_id)
+                if
+                    client
+                    and client.server_capabilities.documentHighlightProvider
+                then
+                    -- print(client.server_capabilities.documentHighlightProvider)
+                    local highlight_augroup = vim.api.nvim_create_augroup(
+                        "m2x07-lsp-highlight",
+                        { clear = false }
+                    )
+                    vim.api.nvim_create_autocmd(
+                        { "CursorHold", "CursorHoldI" },
+                        {
+                            buffer = event.buf,
+                            group = highlight_augroup,
+                            callback = vim.lsp.buf.document_highlight,
+                        }
+                    )
+
+                    vim.api.nvim_create_autocmd(
+                        { "CursorMoved", "CursorMovedI" },
+                        {
+                            buffer = event.buf,
+                            group = highlight_augroup,
+                            callback = vim.lsp.buf.clear_references,
+                        }
+                    )
+
+                    vim.api.nvim_create_autocmd("LspDetach", {
+                        group = vim.api.nvim_create_augroup(
+                            "m2x07-lsp-detach",
+                            { clear = true }
+                        ),
+                        callback = function(event2)
+                            vim.lsp.buf.clear_references()
+                            vim.api.nvim_clear_autocmds({
+                                group = "m2x07-lsp-highlight",
+                                buffer = event2.buf,
+                            })
+                        end,
+                    })
+                end
             end,
-          })
-        end
-      end,
-    })
-  end,
+        })
+    end,
 }
