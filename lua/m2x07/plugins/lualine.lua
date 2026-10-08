@@ -1,68 +1,68 @@
 return {
-  {
-    "nvim-lualine/lualine.nvim",
-    lazy = true,
-    event = "VimEnter",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      local lualine = require("lualine")
+    {
+        "nvim-lualine/lualine.nvim",
+        lazy = true,
+        event = "VimEnter",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            local lualine = require("lualine")
 
-      local function get_lsp()
-        local msg = "No Active LSP"
-        ---@diagnostic disable-next-line: deprecated
-        local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-        ---@diagnostic disable-next-line: deprecated
-        local clients = vim.lsp.get_clients()
-        if next(clients) == nil then
-          return msg
-        end
-        for _, client in ipairs(clients) do
-          ---@diagnostic disable-next-line: undefined-field
-          local filetypes = client.config.filetypes
-          if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-            return client.name
-          end
-        end
-        return msg
-      end
+            local function get_lsp()
+                local msg = "No Active LSP"
+                ---@diagnostic disable-next-line: deprecated
+                local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+                ---@diagnostic disable-next-line: deprecated
+                local clients = vim.lsp.get_clients()
+                if next(clients) == nil then
+                    return msg
+                end
+                for _, client in ipairs(clients) do
+                    ---@diagnostic disable-next-line: undefined-field
+                    local filetypes = client.config.filetypes
+                    if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                        return client.name
+                    end
+                end
+                return msg
+            end
 
-      lualine.setup({
-        options = {
-          icons_enabled = true,
-          theme = "auto",
-          component_separators = { left = "|", right = "|" },
-          section_separators = { left = "", right = "" },
-        },
-        sections = {
-          lualine_x = {
-            {
-              ---@diagnostic disable-next-line: undefined-field, deprecated
-              require("noice").api.statusline.mode.get,
-              ---@diagnostic disable-next-line: deprecated, undefined-field
-              cond = require("noice").api.statusline.mode.has,
-              color = { fg = "#ff9e64" },
-            },
-            {
-              get_lsp,
-              icon = "",
-            },
-            "fileformat",
-            "filetype",
-          },
-        },
-        tabline = {
-          lualine_a = {
-            {
-              "buffers",
-              filetype_names = {
-                snacks_picker_list = "Explorer",
-              },
-              use_mode_colors = true,
-            },
-          },
-          lualine_z = { "tabs" },
-        },
-      })
-    end,
-  },
+            lualine.setup({
+                options = {
+                    icons_enabled = true,
+                    theme = "auto",
+                    component_separators = { left = "|", right = "|" },
+                    section_separators = { left = "", right = "" },
+                },
+                sections = {
+                    lualine_x = {
+                        {
+                            ---@diagnostic disable-next-line: undefined-field, deprecated
+                            require("noice").api.statusline.mode.get,
+                            ---@diagnostic disable-next-line: deprecated, undefined-field
+                            cond = require("noice").api.statusline.mode.has,
+                            color = { fg = "#ff9e64" },
+                        },
+                        {
+                            get_lsp,
+                            icon = "",
+                        },
+                        "fileformat",
+                        "filetype",
+                    },
+                },
+                tabline = {
+                    lualine_a = {
+                        {
+                            "buffers",
+                            filetype_names = {
+                                snacks_picker_list = "Explorer",
+                            },
+                            use_mode_colors = true,
+                        },
+                    },
+                    lualine_z = { "tabs" },
+                },
+            })
+        end,
+    },
 }

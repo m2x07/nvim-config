@@ -9,43 +9,43 @@ return {
       dependencies = { "nvim-neotest/nvim-nio" },
     },
     "theHamsta/nvim-dap-virtual-text",
-    "jay-babu/mason-nvim-dap.nvim",
+    -- "jay-babu/mason-nvim-dap.nvim",
     "leoluz/nvim-dap-go",
   },
   -- opts = true,
   config = function()
     local dap, dapui = require("dap"), require("dapui")
-    require("mason-nvim-dap").setup({
-      ensure_installed = {
-        "python",
-        "delve",
-        "js",
-        "firefox",
-      },
-      automatic_installation = true,
-    })
+    -- require("mason-nvim-dap").setup({
+    --   ensure_installed = {
+    --     "python",
+    --     "delve",
+    --     "js",
+    --     "firefox",
+    --   },
+    --   automatic_installation = true,
+    -- })
 
-    dap.adapters["pwa-node"] = {
-      type = "server",
-      host = "localhost",
-      port = "${port}",
-      executable = {
-        command = "node",
-        args = {
-          vim.fn.stdpath("data")
-            .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
-          "${port}",
-        },
-      },
-    }
-    dap.adapters.firefox = {
-      type = "executable",
-      command = "node",
-      args = {
-        vim.fn.stdpath("data")
-          .. "/mason/packages/firefox-debug-adapter/dist/adapter.bundle.js ",
-      },
-    }
+    -- dap.adapters["pwa-node"] = {
+    --   type = "server",
+    --   host = "localhost",
+    --   port = "${port}",
+    --   executable = {
+    --     command = "node",
+    --     args = {
+    --       vim.fn.stdpath("data")
+    --         .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+    --       "${port}",
+    --     },
+    --   },
+    -- }
+    -- dap.adapters.firefox = {
+    --   type = "executable",
+    --   command = "node",
+    --   args = {
+    --     vim.fn.stdpath("data")
+    --       .. "/mason/packages/firefox-debug-adapter/dist/adapter.bundle.js ",
+    --   },
+    -- }
 
     dap.configurations.javascript = {
       {

@@ -45,8 +45,8 @@ vim.g.loaded_netrwPlugin = 0
 vim.g.background = "dark"
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "*",
-  callback = function()
-    vim.o.background = "dark"
-  end,
+    pattern = "*",
+    callback = function()
+        vim.o.background = "dark"
+    end,
 })
